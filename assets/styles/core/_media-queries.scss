@@ -1,0 +1,76 @@
+$screen: "only screen";
+$landscape: "#{$screen} and (orientation: landscape)";
+$portrait: "#{$screen} and (orientation: portrait)";
+$retina: (
+  "#{$screen} and (-webkit-min-device-pixel-ratio: 2)",
+  "#{$screen} and (min--moz-device-pixel-ratio: 2)",
+  "#{$screen} and (-o-min-device-pixel-ratio: 2/1)",
+  "#{$screen} and (min-device-pixel-ratio: 2)",
+  "#{$screen} and (min-resolution: 192dpi)",
+  "#{$screen} and (min-resolution: 2dppx)"
+);
+
+/* Retina */
+@mixin retina {
+  @media #{$retina} {@content}
+}
+
+/* Breakpoints */
+$mq_415: "#{$screen} and (max-width: 415px)";
+$mq_500: "#{$screen} and (max-width: 500px)";
+$mq_575: "#{$screen} and (max-width: 575px)";
+$mq_600: "#{$screen} and (max-width: 600px)";
+$mq_750: "#{$screen} and (max-width: 750px)";
+$mq_768: "#{$screen} and (max-width: 768px)";
+$mq_800: "#{$screen} and (max-width: 800px)";
+$mq_960: "#{$screen} and (max-width: 960px)";
+$mq_1000: "#{$screen} and (max-width: 1000px)";
+$mq_1024: "#{$screen} and (max-width: 1023px)";
+$mq_1200: "#{$screen} and (max-width: 1200px)";
+$mq_1300: "#{$screen} and (max-width: 1300px)";
+$mq_1400: "#{$screen} and (max-width: 1400px)";
+$mq_1500: "#{$screen} and (max-width: 1500px)";
+$mq_1460: "#{$screen} and (max-width: 1460px)";
+
+@mixin mq_415 {
+  @media #{$mq_415} {@content}
+}
+@mixin mq_500 {
+  @media #{$mq_500} {@content}
+}
+@mixin mq_575 {
+  @media #{$mq_575} {@content}
+}
+@mixin mq_600 {
+  @media #{$mq_600} {@content}
+}
+@mixin mq_750 {
+  @media #{$mq_750} {@content}
+}
+@mixin mq_768 {
+  @media #{$mq_768} {@content}
+}
+@mixin mq_800 {
+  @media #{$mq_800} {@content}
+}
+@mixin mq_960 {
+  @media #{$mq_960} {@content}
+}
+@mixin mq_1000 {
+  @media #{$mq_1000} {@content}
+}
+@mixin mq_1024 {
+  @media #{$mq_1024} {@content}
+}
+@mixin mq_1200 {
+  @media #{$mq_1200} {@content}
+}
+@mixin mq_1300 {
+  @media #{$mq_1300} {@content}
+}
+@mixin mq_1400 {
+  @media #{$mq_1400} {@content}
+}
+@mixin mq_1500 {
+  @media #{$mq_1500} {@content}
+}

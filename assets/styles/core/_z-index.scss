@@ -1,0 +1,8 @@
+$zIndexes: (
+  index_small: 5,
+  mobile_menu: 40
+);
+
+@function getIndex($zIndexName) {
+  @return map-get($zIndexes, $zIndexName);
+}

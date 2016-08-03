@@ -1,0 +1,247 @@
+.banner {
+  height: 158px;
+  width: 100%;  
+  background: url(../images/header.jpg) 50% 0 repeat-x;  
+  @include mq_600 {
+    display: none;
+  }
+}
+
+.container.container--header {  
+  width: 100%;
+  display: table;
+  /*box-sizing: border-box;*/
+}
+
+.banner,
+.container.container--header {
+  height: 158px;
+  @include mq_800 {
+    height: 120px;
+  }
+}
+
+/*
+.header__branding,
+.nav_social_links {
+  vertical-align: middle;
+  display: table-cell;
+}
+*/
+
+.header__branding,
+.social_links {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.header__branding {
+  width: 150px;
+  height: 52px;
+}
+
+/*
+.nav_social_links {
+  text-align: right;
+}
+*/
+
+.social_links {
+  text-align: right;
+}
+
+.social_links li {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.social_links li + li {
+  margin-left: 15px;
+}
+
+.social_links a.linkedin {
+  background: $linkedin;
+}
+
+.social_links a.github {
+  background: $github;
+}
+
+.social_links a {
+  width: 41px;
+  height: 41px;
+  line-height: 41px;
+  text-align: center;
+  display: inline-block;
+}
+
+.social_links i {
+  color: $white;
+  font-size: 24px;
+}
+
+.social_links a.github i {
+  font-size: 30px;
+  padding-top: 5px;
+}
+
+.header__branding__logo {
+  width: 100%;
+}
+
+.nav_primary_wrap {
+  height: 54px;
+  margin-bottom: 30px;
+}
+
+.nav_primary {
+  background: $brown;
+  padding: 12px 0;  
+}
+
+.nav_primary_fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.nav_primary_regular {
+  position: relative;
+}
+
+.nav_primary li {
+  float: left;
+  padding-left: 35px;
+  background-position: 0 2px;
+  background-repeat: no-repeat;
+  @include mq_750 {
+    padding-left: 0 !important;
+    background: none !important;
+  }  
+}
+
+.nav_primary li + li {
+  margin-left: 60px;
+  @include mq_800 {
+    margin-left: 40px;
+  }
+  @include mq_750 {
+    margin-left: 35px;
+  }
+  @include mq_600 {
+    margin-left: 29px;
+  }
+}
+
+.nav_primary li.menu_portfolio,
+.nav_primary li.menu_quote {
+  float: right;
+  @include mq_600 {
+    float: left;
+  }
+}
+
+.nav_primary a {
+  font-family: 'myriad_bold', sans-serif;
+  font-weight: bold;
+  color: $white;
+  font-size: 20px;
+}
+
+.nav_primary .menu_home {
+  background-image: url( '../images/menu_home.png' );
+  background-position: 0 2px;
+  @include mq_960 {
+    display: none;
+  }
+  @include mq_600 {
+    display: block;
+    text-indent: -9999px;
+    background: url( '../images/baia_logo.svg' ) 0 50% no-repeat !important;
+    background-size: contain !important;
+    width: 95px;
+    height: 25px;
+  }
+}
+
+.nav_primary .menu_home.menu_home--sticky {
+  display: block;
+  text-indent: -9999px;
+  background: url( '../images/baia_logo.svg' ) 0 50% no-repeat !important;
+  background-size: contain !important;
+  width: 70px;
+  height: 25px;
+  padding-left: 0;
+}
+
+.nav_primary .menu_services {
+  background-image: url( '../images/menu_services.png' );
+  background-position: 0 2px;
+  @include mq_960 {
+    margin-left: 0;
+  }
+  @include mq_600 {
+    display: none;
+  }
+}
+
+.nav_primary .menu_about {
+  background-image: url( '../images/menu_about.png' );
+  background-position: 0 1px;
+  padding-left: 32px;
+  @include mq_600 {
+    display: none;
+  }
+}
+
+.nav_primary .menu_contact {
+  background-image: url( '../images/menu_contact.png' );
+  background-position: 0 3px;
+  @include mq_600 {
+    margin-left: 0;
+  }
+  @include mq_415 {
+    display: none;
+  }
+}
+
+.nav_primary .menu_portfolio {
+  background-image: url( '../images/menu_portfolio.png' );
+  margin-left: 0;
+  padding-left: 39px;
+  @include mq_600 {
+    margin-left: 29px;
+  }
+  @include mq_415 {
+    margin-left: 0;
+  }
+}
+
+.nav_primary .menu_quote {
+  background-image: url( '../images/menu_quote.png' );
+  @include mq_500 {
+    display: none;
+  }
+}
+
+.nav_primary .menu_portfolio a,
+.nav_primary .menu_quote a {
+  color: $yellow;
+  @include mq_600 {
+    color: $white;
+  }
+  @include mq_415 {
+    color: $yellow;
+  }
+}
+
+/*
+.nav_primary .menu_services,
+.nav_primary .menu_about,
+.nav_primary .menu_contact,
+.nav_primary .menu_quote {
+  display: none !important;
+}
+*/
