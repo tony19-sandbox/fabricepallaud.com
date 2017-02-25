@@ -1,8 +1,14 @@
+<?php
+/*
+Template Name: Page Home
+*/
+?>
+
 <div class='container container--home'>
   
-  <p class='home_intro__title'>
-    Welcome! I'm <span>Fabrice Pallaud</span>, WordPress developer.
-  </p>
+  <h1 class='home_intro__title'>
+    Hi. I'm <span>Fabrice Pallaud</span>, WordPress developer.
+  </h1>
 
   <p class='home_intro__subtitle'>
     See my <a href='<?php echo get_bloginfo("wpurl"); ?>/portfolio/'>portfolio</a>, 

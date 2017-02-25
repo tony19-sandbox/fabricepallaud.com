@@ -6,11 +6,6 @@
         src='<?php bloginfo( "template_url" ); ?>/dist/images/baia_logo.svg'
       />
     </a>
-    <!--
-    <nav class='nav_social_links'>
-      social links
-    </nav>
-    -->
     <ul class='social_links'>
       <li>
         <a class='linkedin' href='https://www.linkedin.com/'>
@@ -40,9 +35,3 @@
 <div class='mobile_menu'>
   <?php get_template_part( 'templates/mobile_menu' ); ?>
 </div>
-
-<!--
-<a class='mobile_menu_link' href='#'>
-  <i class='fa fa-bars' aria-hidden='true'></i> <span>Menu</span>
-</a> 
--->

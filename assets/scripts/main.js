@@ -28,17 +28,8 @@
         $( window ).resize(function() { $( '#dimensions' ).html( window.innerWidth ); });
         if ( document.location.href.indexOf( 'localhost' ) !== -1 ) { $( '#dimensions' ).show(); }
         
-        /* Displays / hides mobile menu */
-        /*
-        $( '.mobile_menu_link' ).toggle( function() {
-          $( '.mobile_menu' ).css( 'display', 'flex').css( 'pointer-events', 'all').hide().fadeIn();
-        }, function() {
-          $( '.mobile_menu' ).css( 'pointer-events', 'none').hide();
-        });
-        */
-
         $( '.mobile_menu_link' ).click( function() {
-          $( '.mobile_menu' ).css( 'display', 'flex').hide().fadeIn();
+          $( '.mobile_menu' ).css( 'display', 'flex' ).hide().fadeIn();
         });
         $( '.mobile_menu_close' ).click( function() {
           $( '.mobile_menu' ).fadeOut();
@@ -77,26 +68,6 @@
     'home': {
       init: function() {
         // JavaScript to be fired on the home page
-
-        /* Hover effect on main links */     
-        /*   
-        $( '.home_link' ).on({
-          mouseenter:
-            function() {
-              var home_link = $(this);
-              home_link.children( 'a' ).addClass( 'home_link_caption_hover' );
-              home_link.children( '.home_link_disc' ).addClass( 'home_link_disc_hover' );
-            },
-          mouseleave:
-            function() {
-              var home_link = $(this);
-              home_link.removeClass( 'home_link_caption_hover' );
-              home_link.children( '.home_link_disc' ).removeClass( 'home_link_disc_hover' );
-            }
-          }
-        );
-        */
-        
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
@@ -106,6 +77,20 @@
     'about_us': {
       init: function() {
         // JavaScript to be fired on the about us page
+      }
+    },
+    // Portfolio
+    'portfolio': {
+      init: function() {
+        $( '.test' ).click(function() {
+          var data = {
+            action: 'load_entries',
+            'post_id': '29'
+          };
+          $.post( WPaAjax.ajaxurl, data, function(response) {
+            $('.portfolio_current_entry').html(response);
+          });
+        });
       }
     }
   };

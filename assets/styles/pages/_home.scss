@@ -1,0 +1,139 @@
+.home_intro__title {
+  margin: 35px 0 0;
+  font-family: 'helvetica_black', sans-serif;
+  letter-spacing: 0.02em;
+  font-size: 4.1rem;
+  line-height: 1;
+  text-align: center;
+  @include mq_1100 {
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+  }
+  @include mq_768 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+  }
+}
+
+.home_intro__title span {
+  color: $red;
+}
+
+.home_intro__subtitle,
+.home_intro__subtitle a {
+  color: $black;
+  font-family: 'molengo';
+  letter-spacing: 0.02em;
+  font-size: 3rem;
+  text-align: center;
+  @include mq_1100 {
+    font-size: 2.6rem;
+  }
+  @include mq_768 {
+    font-size: 2.3rem;
+  }
+}
+
+.home_intro__subtitle a {
+  color: $gray2;
+  border-bottom: 1px solid $red;
+  position: relative;
+}
+
+.home_intro__subtitle a:hover {
+  border-bottom: 1px solid $black;
+}
+
+.home_links {
+  overflow: hidden; 
+  margin: 70px auto 50px;
+  width: 80%;
+  text-align: center;
+  @include mq_1100 {
+    width: auto;
+  }
+}
+
+.home_link {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  position: relative;
+}
+
+.home_link:hover {
+  a {
+    color: $red !important;
+  }
+  .home_link_disc {
+    background: $black !important;
+  }
+}
+
+.home_link_disc {
+  background: rgba(50,50,50,0.05);  
+  cursor: pointer;
+  width: 130px;
+  height: 130px;
+  border-radius: 65px;
+  margin: 0 auto 10px;
+  transition: all .3s ease;
+  @include mq_1100 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+  }
+  @include mq_600 {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+  }
+}
+
+.home_link_icon {
+  @include mq_1100 {
+    width: 100px;
+    height: 100px;
+  }
+  @include mq_600 {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.home_link a {
+  color: $black;
+  font-family: 'molengo'; 
+  letter-spacing: 0.02em;
+  font-size: 3rem;
+  text-align: center;
+  color: $gray2;
+  @include mq_1100 {
+    font-size: 2.3rem;
+    letter-spacing: 0.01em;
+  }
+  @include mq_768 {
+    font-size: 2rem;
+  }
+  @include mq_600 {
+    font-size: 1.7rem;
+    letter-spacing: 0;
+  }
+}
+
+.home_link_disc:hover {
+  background: $gray3;
+}
+
+.home_link:active {
+  top: 1px;
+}
+
+
+
+
+
+
+
+
+
