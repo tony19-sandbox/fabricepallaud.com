@@ -8,59 +8,209 @@
 @import "core/header";
 @import "core/mobile_menu";
 @import "core/footer";
-@import "pages/home";
-@import url(https://fonts.googleapis.com/css?family=Molengo);
-@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
 html {
   font-size: 62.5%;
 }
 
 body {
-  background: url( '../images/body.jpg' ) 50% 0 repeat; 
-}
-
-#tinymce {
-  background: $white;
+  background: url('../images/body.jpg') 50% 0 repeat; 
 }
 
 .wrap {
-  background: $white;
+  background-color: $white;
+  position: relative;
+  overflow: hidden;
+  padding: 50px 0 100px;
+}
+
+.content_wrap {
+  padding: 50px 0;
 }
 
 .container {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: $content_width;
+  margin: 0 auto;
   overflow: hidden;
-  padding: 0 20px;
-  box-sizing: content-box;
-}
-
-.wrap {
-  position: relative;
-  overflow: hidden;  
-}
-
-.page_content {
-  max-width: 1180px;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-}
-
-.full_width {
-  margin: 0 (-$mobile_side_margin);
+  @include mq_1200 {
+    padding-left: $content_margin_mobile;
+    padding-right: $content_margin_mobile;
+  }
 }
 
 a,
 body,
+div,
 p,
 textarea,
 input,
 select {
-  font-family: 'verdana', 'proxima', sans-serif;
-  font-size: 1.6rem;
-  line-height: 1.5;
+  @include regular_text;
   color: $black;
 }
+
+.button,
+a {
+  position: relative;
+}
+
+p.container,
+p {
+  margin-bottom: 1.5em;
+}
+
+.button:active,
+a:active {
+  top: 1px;
+}
+
+h1 {
+  @include page_heading;
+  margin-bottom: 30px;
+}
+
+h2 {
+  @include section_heading;
+  margin-bottom: 30px;
+}
+
+h3 {
+  @include subsection_heading;
+  margin-bottom: 15px;
+}
+
+
+h3.container {
+  margin-bottom: 15px;
+}
+
+.content a {
+  border-bottom: 1px solid $black;
+}
+
+.content_ul li,
+.content li {
+  margin-bottom: 0.5em;
+  position: relative;
+  padding-left: 25px;
+}
+
+.content_ul li:before,
+.content li:before {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  font-family: 'icomoon' !important;
+  font-size: 15px;
+  content: "\ea1c";
+  color: $gray2;
+}
+
+.content li strong {
+  color: $red;
+}
+
+.content .alignleft {
+  float: left;
+}
+
+.header_with_subtitle {
+  margin-bottom: 25px;
+}
+
+.header_with_subtitle h1 {
+  margin-bottom: 10px;
+}
+
+.page_header {
+  margin-bottom: 60px;
+}
+
+.page_title {
+  @include page_heading;
+  margin-bottom: 20px;
+}
+
+.page_summary {
+  color: $gray4;
+  @include page_summary;
+}
+
+.page_summary strong {
+  color: $gray3;
+}
+
+.page_header_link {
+  @include page_summary;
+  color: $red;
+  border-bottom: 1px solid $red;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input {  
+  width: 320px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border: 1px solid #D7D7D7;
+  line-height: 1;
+  color: #555;
+  border-radius: 3px;
+  background: #f4f4f4;
+}
+
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 240px;
+}
+
+label span {
+  font-family: 'helvetica_black', sans-serif;
+  font-size: 22px;
+  color: $red;
+}
+
+.button {
+  padding: 12px 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  font-family: 'helvetica_black', sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  max-width: 150px !important;
+  text-align: center;
+  display: block;
+  background: $gray0;
+  border-color: #D7D7D7;
+  border-style: solid;
+  border-width: 1px;
+  color: $black;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 0 #fff inset;
+  text-shadow: 0px 2px 1px #fff;
+}
+
+.button:hover {
+  color: $black1;
+  background: #f0f0f0;
+}
+
+.footnote {
+  font-size: 1.5rem;
+  color: $gray4;
+}
+
+@import "pages/frontpage";
+@import "pages/frontpage_section_portfolio";
+@import "pages/contact";
+@import "pages/about";
+@import "pages/quote";
+@import "pages/single";

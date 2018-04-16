@@ -1,15 +1,113 @@
 /* Colors */
 $black: #333333;
+$black1: #222;
 $brown: #1d1815;
 $red: #ff4b68;
 $yellow: #fef399;
 $white: #ffffff;
-$gray1: #ebebeb;
+$gray0: #f4f4f4;
+$gray1: #f6f6f6;
 $gray2: #d8cfc9;
 $gray3: #1d1815;
+$gray4: #aaaaaa;
+$gray5: #e8e8e8;
+$gray6: rgba(0,0,0,0.04);
+$gray7: rgba(0,0,0,0.08);
+$gray8: #fcfcfc;
+$gray9: #d4d4d4;
+
 $github: #333333;
 $linkedin: #0274b3;
 $mobile_menu_bg: rgba(32, 32, 32, 0.92);
 
 /* Misc */
-$mobile_side_margin: 20px;
+$content_margin_mobile: 20px;
+$content_width: 1200px;
+$content_width_small: 900px;
+
+/* Fonts */
+$regular_text: 'Source Serif Pro', sans-serif;
+$helvetica_regular: 'helvetica_regular', sans-serif;
+$helvetica_black: 'helvetica_black', sans-serif;
+$verdana: 'verdana', sans-serif;
+
+@mixin regular_text {
+  font-family: $regular_text;
+  font-size: 21px;
+  line-height: 1.6;
+}
+
+@mixin small_text {
+  font-family: $helvetica_regular;
+  letter-spacing: 0.03em;
+  font-size: 16px;
+  color: #bbb;
+  line-height: 1.6;
+}
+
+@mixin legend {
+  font-size: 13px;
+  color: $gray4;
+  font-family: $helvetica_regular;
+}
+
+@mixin code {
+  font-size: 14px;
+  line-height: 2.2;
+}
+
+@mixin top_menu {
+  font-family: $helvetica_black;
+  letter-spacing: 0.03em;
+  font-size: 19px;
+}
+
+@mixin page_heading {
+  font-family: $helvetica_black;
+  font-size: 35px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+@mixin section_heading {
+  font-family: $helvetica_black;
+  line-height: 1.1;
+  font-size: 25px;
+}
+
+@mixin subsection_heading {
+  font-family: $helvetica_regular;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+@mixin subsection_heading_strong {
+  font-family: $helvetica_black;
+  font-size: 25px;
+}
+
+@mixin mobile_menu {
+  font-family: $helvetica_black;
+  font-weight: normal;
+  font-size: 25px;
+}
+
+@mixin page_summary {
+  font-size: 2.3rem;
+  line-height: 1.5em;
+  letter-spacing: 0.01em;
+}
+
+@mixin quote_button {
+  font-size: 2.5rem;
+  font-family: $helvetica_black;
+  width: 30%;
+  letter-spacing: -0.02em;
+}
+
+@mixin big_link {
+  font-family: $helvetica_black;
+  font-size: 20px;
+  color: $red;
+  border-bottom: 1px solid $red;
+}

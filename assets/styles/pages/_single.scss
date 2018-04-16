@@ -1,0 +1,87 @@
+.skills--single {
+  @include small_text;
+}
+
+.wrap--single li img {
+  margin-bottom: 1em;
+}
+
+.wrap--single .container {
+  max-width: $content_width_small;
+}
+
+.wrap--single ul + h3,
+.wrap--single p + h3 {
+  margin-top: 3em;
+}
+
+.picture {
+  display: flex;
+  justify-content: center;
+  background: $gray1;
+  border: 1px solid $gray5;
+  border-width: 1px 0 1px 0;
+  padding: 40px 0 30px;
+  margin: 2em 0 4em;
+}
+
+.container + .picture {
+  margin-top: -0.25em;
+}
+
+.picture li {
+  padding: 0 25px;
+  @include legend;
+}
+
+.picture li:before {
+  display: none;
+}
+
+.wrap--single .codecolorer-container {
+  border: none;
+  max-width: $content_width_small;
+  margin: 2em auto 4em;
+  @include mq_1200 {
+    padding-left: $content_margin_mobile;
+    padding-right: $content_margin_mobile;
+  }
+}
+
+.codecolorer-container table td.line-numbers {
+  padding: 0 20px !important;  
+  background-color: #dfdfdf !important;
+  border: none !important;
+}
+
+.codecolorer-container div.codecolorer {
+  padding-left: 20px;
+  background-color: #f0f0f0;
+}
+
+.codecolorer-container table td.line-numbers div,
+div .codecolorer,
+div .codecolorer span {
+  padding: 25px 0;
+  @include code;
+}
+
+.codecolorer-container table td.line-numbers div {
+  color: #aaa;
+  min-width: 0 !important;
+}
+
+.overflow {
+  overflow: hidden;
+  margin-top: 1.5em;
+}
+
+.jseditor {
+  width: 150px;
+  float: left;
+}
+
+.jseditor_text {
+  width: 710px;
+  float: right;  
+}

@@ -1,0 +1,39 @@
+.page_header.page_header--contact {
+  padding-right: 30%;
+  background: url(../images/pouf.png) right -13px no-repeat;
+  min-height: 195px;
+  margin-bottom: 0;
+}
+
+.content--contact {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page_summary--contact {
+  width: 85%;
+}
+
+.contact_form {
+  width: 54%;
+}
+
+.contact_sidebar {
+  width: 38%;
+  padding-top: 30px;
+}
+
+#message_human {
+  width: 25px;
+  display: inline;
+  margin-right: 10px;
+}
+
+.contact_sidebar img {
+  border: 1px solid #D7D7D7;
+  margin-top: 20px;
+}
+
+.contact_form input[type=submit] {
+  margin-top: 50px;
+}

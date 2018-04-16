@@ -1,0 +1,55 @@
+body {
+  overflow-y: scroll;
+}
+
+.wrap.wrap--front {
+  padding: 120px 0;
+}
+
+.container.container--home {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.home_intro__title {
+  @include page_heading;
+  font-size: 42px;
+  margin: 0;  
+  text-align: center;
+  margin-bottom: 15px;
+  @include mq_1100 {
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+  }
+  @include mq_768 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+  }
+}
+
+.home_intro__description {
+  @include subsection_heading;
+  color: $gray4;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.home_intro__description strong {  
+  @include subsection_heading_strong;
+  color: $gray2;
+}
+
+.home_intro__title span {
+  color: $red;
+}
+
+.home_intro__subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 0 75px;
+}
+
+.home_intro__subtitle h2 {
+  margin: 0 15px 0 0;
+}

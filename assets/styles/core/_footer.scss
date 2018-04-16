@@ -1,5 +1,4 @@
 .footer {
-  margin-top: 30px;
   background: url( '../images/footer.jpg' ) 50% 0 repeat-x;
   height: 206px;
   box-sizing: border-box;
@@ -64,23 +63,9 @@
 
 .footer_copyright {
   display: inline-block;
-  margin-left: 20px;
+  margin-left: 40px;
+  color: $red;
 }
-
-/*
-.wordpress {
-  @include mq_768 {
-    display: none;
-  }
-}
-
-.slack {
-  margin-bottom: 3px;
-  @include mq_415 {
-    display: none;
-  }
-}
-*/
 
 .footer_portfolio_artefacts {
   float: right;
@@ -90,12 +75,6 @@
   margin-left: 16px;
 }
 
-/*
-.footer_logos_copyright img,
-.footer_logos_copyright div,
-.footer_portfolio_artefacts img,
-.footer_portfolio_artefacts div {
-*/
 .git,
 .sass,
 .gulp,

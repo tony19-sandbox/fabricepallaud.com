@@ -1,0 +1,25 @@
+.content.content--about {
+  overflow: visible;
+}
+
+.content--about {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page_summary--about {
+  width: 55%;
+}
+
+.about_info {
+  width: 65%;
+}
+
+.about_illustration {
+  width: 30%;
+  text-align: right;
+}
+
+.about_illustration img {
+  margin-top: -185px;
+}
