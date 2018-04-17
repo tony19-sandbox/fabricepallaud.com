@@ -47,5 +47,5 @@
 </div>
 
 <div class="mobile_menu">
-  <?php get_template_part('mobile_menu'); ?>
+  <?php get_template_part('templates/mobile_menu'); ?>
 </div>
