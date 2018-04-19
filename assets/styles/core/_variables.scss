@@ -1,6 +1,6 @@
 /* Colors */
-$black: #333333;
-$black1: #222;
+$black1: #333333;
+$black2: #222;
 $brown: #1d1815;
 $red: #ff4b68;
 $yellow: #fef399;
@@ -11,11 +11,10 @@ $gray2: #d8cfc9;
 $gray3: #1d1815;
 $gray4: #aaaaaa;
 $gray5: #e8e8e8;
-$gray6: rgba(0,0,0,0.04);
-$gray7: rgba(0,0,0,0.08);
-$gray8: #fcfcfc;
-$gray9: #d4d4d4;
-
+$gray6: #d4d4d4;
+$gray7: #fcfcfc;
+$trans_gray1: rgba(0,0,0,0.04);
+$trans_gray2: rgba(0,0,0,0.08);
 $github: #333333;
 $linkedin: #0274b3;
 $mobile_menu_bg: rgba(32, 32, 32, 0.92);
@@ -27,8 +26,9 @@ $content_width_small: 900px;
 
 /* Fonts */
 $regular_text: 'Source Serif Pro', sans-serif;
-$helvetica_regular: 'helvetica_regular', sans-serif;
+/*$helvetica_regular: 'helvetica_regular', sans-serif;*/
 $helvetica_black: 'helvetica_black', sans-serif;
+$regular_sans: 'Lato', sans-serif;
 $verdana: 'verdana', sans-serif;
 
 @mixin regular_text {
@@ -38,22 +38,22 @@ $verdana: 'verdana', sans-serif;
 }
 
 @mixin small_text {
-  font-family: $helvetica_regular;
+  font-family: $regular_sans;
   letter-spacing: 0.03em;
   font-size: 16px;
-  color: #bbb;
+  color: $red;
   line-height: 1.6;
 }
 
 @mixin legend {
   font-size: 13px;
   color: $gray4;
-  font-family: $helvetica_regular;
+  font-family: $regular_sans;
 }
 
 @mixin code {
-  font-size: 14px;
-  line-height: 2.2;
+  font-size: 18px;
+  line-height: 1.8;
 }
 
 @mixin top_menu {
@@ -71,13 +71,13 @@ $verdana: 'verdana', sans-serif;
 
 @mixin section_heading {
   font-family: $helvetica_black;
-  line-height: 1.1;
+  line-height: 1.4;
   font-size: 25px;
 }
 
 @mixin subsection_heading {
-  font-family: $helvetica_regular;
-  font-weight: bold;
+  font-family: $regular_sans;
+  /*font-weight: bold;*/
   font-size: 23px;
 }
 

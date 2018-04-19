@@ -18,7 +18,10 @@ JS
 
 function load_scripts() {
   wp_enqueue_script('jquery');  
-  wp_enqueue_script('main_js', get_stylesheet_directory_uri() . '/dist/scripts/main.js', array('jquery'), true); 
+  wp_enqueue_script('main_js', get_stylesheet_directory_uri() . '/dist/scripts/main.js', array('jquery'), true);
+  if (get_post_type() == 'project') {
+    wp_enqueue_script('prism', get_stylesheet_directory_uri() . '/dist/scripts/prism.js', array('jquery'), true);
+  }
 }
 add_action('wp_enqueue_scripts', 'load_scripts');
 
@@ -28,7 +31,10 @@ CSS
 
 function load_styles() {
   //wp_enqueue_style( 'css_fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' ); 
-  wp_enqueue_style('main_css', get_stylesheet_directory_uri() . '/dist/styles/main.css');   
+  wp_enqueue_style('main_css', get_stylesheet_directory_uri() . '/dist/styles/main.css');
+  if (get_post_type() == 'project') {
+    wp_enqueue_style('prism', get_stylesheet_directory_uri() . '/dist/styles/prism.css');
+  }  
 }
 add_action( 'wp_enqueue_scripts', 'load_styles' );
 

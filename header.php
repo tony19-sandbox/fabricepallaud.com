@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><?php wp_title(' • ', 'echo', 'right'); ?><?php bloginfo('name'); ?></title>
+  <meta name="description" content="My name is Fabrice Pallaud. I'm a Front-end Developer and I specialize in high quality WordPress development. " />
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -15,8 +17,9 @@
     <a class="header__branding" href="<?php bloginfo('wpurl'); ?>">
       <img
         class="header__branding__logo"
-        src="<?php bloginfo('template_url'); ?>/dist/images/baia_logo.svg"
+        src="<?php bloginfo('template_url'); ?>/dist/images/logo.svg"
       />
+      <div class="logo_square"></div>
     </a>
     <ul class="social_links">
       <li>

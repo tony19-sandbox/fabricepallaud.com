@@ -11,6 +11,10 @@ $('#dimensions').html(window.innerWidth);
 $(window).resize(function() { $('#dimensions').html( window.innerWidth); });
 if (document.location.href.indexOf('localhost') !== -1) { $('#dimensions').show(); }
 
+/*
+MOBILE MENU DISPLAY
+*/
+
 $('.mobile_menu_link').click(function() {
   $('.mobile_menu').css( 'display', 'flex').hide().fadeIn();
 });
@@ -49,7 +53,7 @@ $(window).scroll(function() { sticky_navigation(); });
 APPLY "CONTAINER" CLASS TO P ELEMENTS IN SINGLE POST
 */
 
-$('.wrap--single header, .wrap--single p, .wrap--single h3, .wrap--single ul:not(.picture)').each(function() {
+$('.wrap--single header,.wrap--single p, .wrap--single h2, .wrap--single h3, .wrap--single ul:not(.picture)').each(function() {
   $(this).addClass('container');
 });
 
@@ -61,5 +65,15 @@ if ($('body').hasClass('single-project')) {
   var header_height = $('.banner').height();
   $('html, body').animate({ scrollTop: header_height }, 200);
 }
+
+/*
+PORTFOLIO SINGLE PAGE: SCROLLS DOWN ON PAGE LOAD 
+*/
+
+$('.button--showPortfolio').toggle(function() {
+  $('.portfolio').slideDown();
+}, function() {
+  $('.portfolio').slideUp();
+});
 
 }); /* END OF jQuery(document).ready(function($) */

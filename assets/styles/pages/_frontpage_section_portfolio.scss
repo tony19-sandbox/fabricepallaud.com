@@ -1,13 +1,14 @@
 .portfolio {
-  /*display: none;*/
-  background: $gray8;
+  display: none;
+  background: $gray7;
 }
 
 .portfolio_entry {
-  border: 1px solid $gray9;
+  border: 1px solid $gray6;
   padding: 25px;
   position: relative;
   margin-bottom: 50px;
+  background-color: $gray0;
 }
 
 .portfolio_entry__header {

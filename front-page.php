@@ -19,7 +19,7 @@ Template Name: Front page
 
     <div class="home_intro__subtitle">
       <h2>my portfolio</h2>
-      <a class="button">expand</a>
+      <a class="button button--showPortfolio">expand</a>
     </div>
 
     <div class="portfolio">
@@ -27,7 +27,8 @@ Template Name: Front page
       <?php
       $args = array(
         'post_type' => 'project',
-        'posts_per_page' => -1
+        'posts_per_page' => -1,
+        'order' => 'ASC'
       );
       $projects = new WP_Query($args);
       while ($projects->have_posts()) : $projects->the_post();

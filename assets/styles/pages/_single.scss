@@ -38,6 +38,7 @@
   display: none;
 }
 
+/*
 .wrap--single .codecolorer-container {
   border: none;
   max-width: $content_width_small;
@@ -70,6 +71,22 @@ div .codecolorer span {
   color: #aaa;
   min-width: 0 !important;
 }
+*/
+
+pre {
+  border-radius: 0;
+  max-width: $content_width_small;
+  margin: 2em auto 4em !important;
+  @include mq_1200 {
+    padding-left: $content_margin_mobile;
+    padding-right: $content_margin_mobile;
+  }
+}
+
+code[class*="language-"] span,
+pre[class*="language-"] span {
+  @include code;
+}
 
 .overflow {
   overflow: hidden;
@@ -85,3 +102,4 @@ div .codecolorer span {
   width: 710px;
   float: right;  
 }
+
