@@ -12,7 +12,16 @@
       <?php the_field('skills'); ?>
     </div>
   </header>
+
   <?php the_content(); ?>
+
+  <div class="lightbox lightbox--enquiry">
+    <div class="lightbox__inner">
+      <a class="lightbox_close">&times;</a>
+      <?php //get_template_part('templates/form_enquiry'); ?>
+      <iframe src="http://127.0.0.1/wordpress/hexagontrip/trip-finder/"></iframe>
+    </div>
+  </div>
 
   </div>
 </div>

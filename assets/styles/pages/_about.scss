@@ -8,18 +8,45 @@
 }
 
 .page_summary--about {
-  width: 55%;
+  width: 50%;
 }
 
 .about_info {
-  width: 65%;
+  width: 55%;
 }
 
 .about_illustration {
-  width: 30%;
+  width: 40%;
   text-align: right;
 }
 
-.about_illustration img {
+.about_illustration__img {
   margin-top: -185px;
+  max-width: 100%;
+  height: auto;
 }
+
+.about_skills {
+  margin-top: 1em;
+  margin-top: 0;
+}
+
+.about_skills strong {
+  background: #d7f3ff;
+  background: $yellow;
+  /*background: #f4f4f4;*/
+  padding: 0 5px;
+  margin: 0 3px;
+}
+
+.about_skills li {
+  margin-bottom: 1em;
+}
+
+.oatmeal {
+  position: relative;
+  top: 2px;
+  display: none;
+}
+
+

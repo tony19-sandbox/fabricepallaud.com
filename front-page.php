@@ -13,11 +13,11 @@ Template Name: Front page
       Hi I'm <span>Fabrice</span>, Front-end Developer.
     </h1>
 
-    <p class="home_intro__description">
+    <p class="home_intro__summary">
       Specialized in <strong>PSD to WP</strong> precision work - Follower of <strong>best practices</strong> & latest trends - Used to work with <strong>  development & marketing agencies.</strong>
     </p>
 
-    <div class="home_intro__subtitle">
+    <div class="home_intro__cta">
       <h2>my portfolio</h2>
       <a class="button button--showPortfolio">expand</a>
     </div>

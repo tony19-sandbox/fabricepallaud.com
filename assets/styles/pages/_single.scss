@@ -38,12 +38,17 @@
   display: none;
 }
 
+.wrap--single img {
+  margin: 0 auto 3em;
+  display: block;
+}
+
 /*
 .wrap--single .codecolorer-container {
   border: none;
   max-width: $content_width_small;
   margin: 2em auto 4em;
-  @include mq_1200 {
+  @include media_1200 {
     padding-left: $content_margin_mobile;
     padding-right: $content_margin_mobile;
   }
@@ -77,7 +82,7 @@ pre {
   border-radius: 0;
   max-width: $content_width_small;
   margin: 2em auto 4em !important;
-  @include mq_1200 {
+  @include media_1200 {
     padding-left: $content_margin_mobile;
     padding-right: $content_margin_mobile;
   }
@@ -103,3 +108,9 @@ pre[class*="language-"] span {
   float: right;  
 }
 
+.no_scrollbar {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}

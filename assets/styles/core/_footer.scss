@@ -2,95 +2,48 @@
   background: url( '../images/footer.jpg' ) 50% 0 repeat-x;
   height: 206px;
   box-sizing: border-box;
-  padding: 40px 0;
-  @include mq_768 {
+  padding: 40px 0;  
+  @include media_768 {
     padding-top: 48px;
   }
 }
 
 .container.container--footer {
-  display: table;
-  width: 100%;
-  overflow: visible;
-  @include mq_1225 {
-    box-sizing: border-box;
-  }
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
 }
 
-.footer_logos_copyright,
-.footer_portfolio_artefacts {
-  font-family: 'helvetica_black', sans-serif;
+.footer__github,
+.footer__copyright {
   color: $white;
-  font-size: 18px;
-  line-height: 41px;
-  display: table-cell;
 }
 
-.footer_logos_copyright {
-  float: left;
-  margin-top: -3px;
-  @include mq_1024 {
-    margin-top: -6px;
-  }
-  @include mq_768 {
-    margin-top: -7px;
-  }
+.footer__github {
+  display: flex;
+  align-items: center;
+  transform: translateY(6px);
 }
 
-.footer_logos_copyright img + img {
-  margin-left: 15px;
-  @include mq_600 {
-    margin-left: 12px;
-  }
-  @include mq_350 {
-    margin-left: 9px;
-  }
+.git {
+  margin-right: 1em;
 }
 
-.git,
-.sass,
-.gulp {
-  @include mq_1225 {
-    transform: scale(0.95);
-  }
-  @include mq_1024 {
-    transform: scale(0.85);
-  }
-  @include mq_768 {
-    transform: scale(1);
-  }
+.footer__github {
+  @include top_menu;
 }
 
-.footer_copyright {
-  display: inline-block;
-  margin-left: 40px;
-  color: $red;
+.footer__github a {
+  margin-left: 0.5em;
 }
 
-.footer_portfolio_artefacts {
-  float: right;
-}
-
-.footer_portfolio_artefacts a + a {
-  margin-left: 16px;
-}
-
-.git,
-.sass,
-.gulp,
-.footer_copyright,
-.footer_sample,
-.footer_portfolio_artefacts__caption {
-  vertical-align: middle;
-  display: inline-block;
-}
-
-.footer_portfolio_artefacts .footer_portfolio_artefacts_caption {
-  @include mq_768 {
+.footer__copyright {
+  margin-right: 35px;
+  @include media_600 {
     display: none;
   }
 }
 
-.footer_portfolio_artefacts__caption span {
-  margin: 0 9px 0 13px;
+.header__branding--footer {
+  transform: scale(0.9);
 }

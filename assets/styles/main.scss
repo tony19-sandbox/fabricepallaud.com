@@ -1,27 +1,23 @@
 @import "core/variables";
 @import "core/normalize";
-@import "core/z-index";
 @import "core/fonts";
-@import "core/buttons";
-@import "core/headings";
 @import "core/media-queries";
 @import "core/header";
-@import "core/mobile_menu";
 @import "core/footer";
-
-html {
-  font-size: 62.5%;
-}
 
 body {
   background: url('../images/body.jpg') 50% 0 repeat; 
+}
+
+div {
+  box-sizing: border-box;
 }
 
 .wrap {
   background-color: $white;
   position: relative;
   overflow: hidden;
-  padding: 50px 0 100px;
+  padding: 70px 0 100px;
 }
 
 .content_wrap {
@@ -32,7 +28,7 @@ body {
   max-width: $content_width;
   margin: 0 auto;
   overflow: hidden;
-  @include mq_1200 {
+  @include media_1200 {
     padding-left: $content_margin_mobile;
     padding-right: $content_margin_mobile;
   }
@@ -46,6 +42,7 @@ a,
 body,
 div,
 p,
+li,
 textarea,
 input,
 select {
@@ -68,6 +65,12 @@ a:active {
   top: 1px;
 }
 
+a.linktype1 {
+  color: $red;
+  font-family: $helvetica_black;
+  font-size: 18px;
+}
+
 h1 {
   @include page_heading;
   margin-bottom: 30px;
@@ -78,11 +81,15 @@ h2 {
   margin-bottom: 30px;
 }
 
+p + h2,
+p + h3 {
+  margin-top: 2em;
+}
+
 h3 {
   @include subsection_heading;
   margin-bottom: 15px;
 }
-
 
 h3.container {
   margin-bottom: 15px;
@@ -94,7 +101,6 @@ h3.container {
 
 .content_ul li,
 .content li {
-  margin-bottom: 0.5em;
   position: relative;
   padding-left: 25px;
 }
@@ -107,11 +113,11 @@ h3.container {
   font-family: 'icomoon' !important;
   font-size: 15px;
   content: "\ea1c";
-  color: $gray2;
+  /*color: $gray2;*/
 }
 
 .content li strong {
-  color: $red;
+  /*color: $red;*/
 }
 
 .content .alignleft {
@@ -132,7 +138,7 @@ h3.container {
 
 .page_title {
   @include page_heading;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .page_summary {
@@ -153,7 +159,7 @@ h3.container {
 label {
   display: block;
   margin-bottom: 10px;
-  font-weight: bold;
+  @include label;
 }
 
 input {  
@@ -163,11 +169,11 @@ input {
 input,
 textarea {
   padding: 10px;
-  border: 1px solid #D7D7D7;
+  border: 1px solid $gray8;
   line-height: 1;
-  color: #555;
+  color: $gray95;
   border-radius: 3px;
-  background: #f4f4f4;
+  background: $gray0;
 }
 
 textarea {
@@ -208,8 +214,75 @@ label span {
 }
 
 .footnote {
-  font-size: 1.5rem;
-  color: $gray4;
+  @include footnote;
+}
+
+.lightbox {
+  background: $black1;
+  position: fixed;
+  display: none;  
+  left: 0;
+  right: 0;  
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  &.active {
+    display: block;
+  }
+}
+
+.lightbox__inner {
+  background: $white;
+  /*
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  */
+  padding: 0;
+  position: absolute;  
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  @include media_600 {
+    transform: translate(-50%, 0);
+    top: 25px;
+  }
+  .lightbox_close {
+    position: absolute;
+    color: $black1;
+    cursor: pointer;
+    font-size: 54px;
+    border: none;    
+    display: block;
+    width: 95px;
+    line-height: 95px;
+    height: 95px;
+    text-align: center;
+    top: 0;
+    z-index: 5;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    background: $white;
+    &:hover {
+      background: $gray1;
+    }
+  }
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border:0;
+}
+
+.scrollbar-measure {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+  position: absolute;
+  top: -9999px;
 }
 
 @import "pages/frontpage";

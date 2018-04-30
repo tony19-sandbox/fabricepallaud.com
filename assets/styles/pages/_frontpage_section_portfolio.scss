@@ -1,14 +1,14 @@
 .portfolio {
   display: none;
-  background: $gray7;
+  /*background: $gray7;*/
 }
 
 .portfolio_entry {
   border: 1px solid $gray6;
   padding: 25px;
   position: relative;
-  margin-bottom: 50px;
-  background-color: $gray0;
+  margin-bottom: 120px;
+  background-color: $gray7;
 }
 
 .portfolio_entry__header {
@@ -18,7 +18,7 @@
 }
 
 .portfolio_entry__maincontent {
-  margin: 2em 0 2.5em;
+  margin: 1em 0 1.5em;
   max-width: 900px;
 }
 
@@ -48,9 +48,9 @@
   font-weight: bold;
 }
 
+/*
 .portfolio_entry {
   position: relative;
-  /*pointer-events: none;*/
   --square: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 20 20"><rect width="20" height="20" fill="#ffffff" stroke="#000" stroke-width="3"/></svg>');
 }
 
@@ -66,3 +66,4 @@
   background-position: 0 0, 100% 0, 0 100%, 100% 100%, 50% 0, 0 50%, 100% 50%, 50% 100%;
   background-repeat: no-repeat;
 }
+*/

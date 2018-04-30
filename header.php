@@ -17,21 +17,19 @@
     <a class="header__branding" href="<?php bloginfo('wpurl'); ?>">
       <img
         class="header__branding__logo"
-        src="<?php bloginfo('template_url'); ?>/dist/images/logo.svg"
+        src="<?php bloginfo('template_url'); ?>/dist/images/logo_desktop.svg"
       />
       <div class="logo_square"></div>
     </a>
     <ul class="social_links">
       <li>
         <a class="linkedin" href="https://www.linkedin.com/in/fabrice-pallaud-b8b4ba24/">
-          <i class="fa fa-linkedin" aria-hidden="true"></i>          
-          <!--<span class="icon-linkedin"></span>-->
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
       <li>
         <a class="github" href="https://github.com/baiadesign">
           <i class="fa fa-github" aria-hidden="true"></i>
-          <!--<span class="icon-github"></span>-->
         </a>
       </li>
     </ul>    
@@ -42,13 +40,6 @@
   <nav class="nav_primary">
     <div class="container container--nav_primary">
       <?php wp_nav_menu(array('menu' => 'main_menu')); ?>
-      <a class="mobile_menu_link" href="#">
-        <i class="fa fa-bars" aria-hidden="true"></i> <span>Menu</span>
-      </a>      
     </div>
   </nav>  
-</div>
-
-<div class="mobile_menu">
-  <?php get_template_part('templates/mobile_menu'); ?>
 </div>

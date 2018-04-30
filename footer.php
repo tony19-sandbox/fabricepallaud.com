@@ -2,25 +2,20 @@
 
   <div class="container container--footer">
 
-    <div class="footer_logos_copyright">
+    <div class="footer__github">
       <img class="git" src="<?php bloginfo('template_url'); ?>/dist/images/git.png" />
-      <img class="sass" src="<?php bloginfo('template_url'); ?>/dist/images/sass.png" />
-      <div class="footer_copyright">
-        <strong>Baia</strong> © 2009 - <?php echo date('Y'); ?>
-      </div>
+      Codebase on <a class="linktype1" href="https://github.com/Baia-design/fabricepallaud.com/tree/dev">GitHub</a>
     </div>
 
-    <div class="footer_portfolio_artefacts">
-      <div class="footer_portfolio_artefacts__caption">
-        Portfolio samples<span>→</span>
-      </div>
-      <a href="<?php bloginfo('wpurl'); ?>/portfolio">
-        <img class="footer_sample" src="<?php bloginfo('template_url'); ?>/dist/images/footer_eneg.png" />
+    <div class="footer__copyright">
+      <a class="header__branding header__branding--footer" href="<?php bloginfo('wpurl'); ?>">
+        <img
+          class="header__branding__logo"
+          src="<?php bloginfo('template_url'); ?>/dist/images/logo_desktop.svg"
+        />
+        <div class="logo_square"></div>
       </a>
-      <a href='<?php bloginfo( "wpurl" ); ?>/portfolio'>
-        <img class="footer_sample" src="<?php bloginfo('template_url'); ?>/dist/images/footer_mk.jpg" />
-      </a>
-    </div>    
+    </div>
 
   </div>
 

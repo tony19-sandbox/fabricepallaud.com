@@ -1,20 +1,20 @@
 .banner {  
   width: 100%;  
   background: url(../images/header.jpg) 50% 0 repeat-x;  
-  @include mq_600 {
+  @include media_600 {
     display: none;
   }
 }
 
+.container.container--nav_primary {
+  overflow: visible;
+}
+
 .container.container--header {  
-  /*
-  width: 100%;
-  display: table;
-  */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @include mq_1225 {
+  @include media_1225 {
     box-sizing: border-box;
   }
 }
@@ -22,18 +22,10 @@
 .banner,
 .container.container--header {
   height: 152px;
-  @include mq_800 {
+  @include media_800 {
     height: 120px;
   }
 }
-
-/*
-.header__branding,
-.social_links {
-  vertical-align: middle;
-  display: table-cell;
-}
-*/
 
 .header__branding {
   width: 215px;
@@ -57,6 +49,21 @@
   transform: translateY(-50%);
   z-index: 2;
 }
+
+/*
+.logo_desktop {
+  @include media_600 {
+    display: none;
+  }
+}
+
+.logo_mobile {
+  display: none;
+  @include media_600 {
+    display: block;
+  }
+}
+*/
 
 .logo_square {
   position: absolute;
@@ -106,20 +113,22 @@
   padding-top: 5px;
 }
 
-.nav_primary_wrap {
-  height: 54px;
-}
-
 .nav_primary {
   background: $brown;
-  padding: 12px 0;  
+  padding: 12px 0;
+  height: 54px;
+  box-sizing: border-box;
+  @include media_600 {
+    height: auto;
+    overflow: hidden;
+  }
 }
 
 .nav_primary_fixed {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 1;
   width: 100%;
 }
 
@@ -132,7 +141,6 @@
   padding-left: 35px;
   background-repeat: no-repeat;
   position: relative;
-  /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   font-size: 22px;
   speak: none;
@@ -143,30 +151,30 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @include mq_750 {
+  @include media_750 {
     padding-left: 0 !important;
     background: none !important;
-  }  
+  }
 }
 
 .nav_primary li:before {
   position: absolute;
   top: 3px;
   left: 0;
-  @include mq_750 {
+  @include media_750 {
     display: none;
   }
 }
 
 .nav_primary li + li {
   margin-left: 60px;
-  @include mq_800 {
+  @include media_800 {
     margin-left: 40px;
   }
-  @include mq_750 {
+  @include media_750 {
     margin-left: 35px;
   }
-  @include mq_600 {
+  @include media_600 {
     margin-left: 29px;
   }
 }
@@ -174,7 +182,7 @@
 .nav_primary li.menu_portfolio,
 .nav_primary li.menu_quote {
   float: right;
-  @include mq_600 {
+  @include media_600 {
     float: left;
   }
 }
@@ -182,20 +190,25 @@
 .nav_primary a {
   @include top_menu;
   color: $white;
+  display: block;
 }
 
 .nav_primary .menu_home {
-  @include mq_960 {
+  @include media_960 {
     display: none;
   }
-  @include mq_600 {
+  @include media_600 {
     display: block;
-    text-indent: -9999px;
-    background: url( '../images/baia_logo.svg' ) 0 50% no-repeat !important;
+    text-indent: -9999px;    
     background-size: contain !important;
-    width: 95px;
-    height: 25px;
+    width: 25px;
+    height: 28px;
+    background: url( '../images/logo_mobile.svg' ) 0 50% no-repeat !important;
   }
+}
+
+.nav_primary .menu_home a {
+  transition: none;
 }
 
 .nav_primary .menu_home:before {
@@ -205,21 +218,33 @@
 .nav_primary .menu_home.menu_home--sticky {
   display: block;
   text-indent: -9999px;
-  background: url( '../images/baia_logo.svg' ) 0 50% no-repeat !important;
+  background: url( '../images/logo_desktop.svg' ) 0 50% no-repeat !important;
   background-size: contain !important;
-  width: 70px;
-  height: 25px;
+  width: 150px;
+  height: 30px;
   padding-left: 0;
+  position: relative;
+  margin-right: 43px;
+}
+
+.nav_primary .menu_home.menu_home--sticky:after {
+  position: absolute;
+  content: '';
+  left: 85px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 54px;
+  background: $red;
+  z-index: -1;
+
 }
 
 .nav_primary .menu_about {
   background-position: 0 1px;
   padding-left: 32px;
-  @include mq_960 {
-    margin: 0;
-  }
-  @include mq_600 {
-    display: none;
+  @include media_960 {
+    margin: 0 0 0 30px;
   }
 }
 
@@ -228,11 +253,8 @@
 }
 
 .nav_primary .menu_contact {
-  @include mq_600 {
+  @include media_600 {
     margin-left: 0;
-  }
-  @include mq_415 {
-    display: none;
   }
 }
 
@@ -244,11 +266,8 @@
 .nav_primary .menu_portfolio {
   margin-left: 0;
   padding-left: 39px;
-  @include mq_600 {
-    margin-left: 29px;
-  }
-  @include mq_415 {
-    margin-left: 0;
+  @include media_600 {
+    display: none;
   }
 }
 
@@ -256,24 +275,20 @@
   content: "\e90f";
 }
 
-.nav_primary .menu_quote {
-  @include mq_500 {
-    display: none;
-  }
-}
-
-.nav_primary .menu_quote:before {
-  content: "\e930";
-}
-
-.nav_primary .menu_portfolio a,
-.nav_primary .menu_quote a {
+.nav_primary .menu_portfolio a {
   color: $yellow;
-  @include mq_600 {
+  @include media_600 {
     color: $white;
   }
-  @include mq_415 {
+  @include media_415 {
     color: $yellow;
+  }
+}
+
+.nav_primary .menu_about,
+.nav_primary .menu_contact {
+  @include media_600 {
+    float: right;
   }
 }
 
@@ -281,20 +296,3 @@
 .nav_primary a:hover {
   color: $red;
 }
-
-/*
-.icon-linkedin,
-.icon-github {
-  font-family: 'icomoon' !important;
-  font-size: 22px;
-  color: blue;
-}
-
-.icon-linkedin:before {
-  content: "\eac9";
-}
-
-.icon-github:before {
-  content: "\eab0";
-}
-*/

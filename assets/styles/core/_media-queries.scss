@@ -16,77 +16,77 @@ $retina: (
 }
 
 /* Breakpoints */
-$mq_350: "#{$screen} and (max-width: 350px)";
-$mq_415: "#{$screen} and (max-width: 415px)";
-$mq_500: "#{$screen} and (max-width: 500px)";
-$mq_575: "#{$screen} and (max-width: 575px)";
-$mq_600: "#{$screen} and (max-width: 600px)";
-$mq_750: "#{$screen} and (max-width: 750px)";
-$mq_768: "#{$screen} and (max-width: 768px)";
-$mq_800: "#{$screen} and (max-width: 800px)";
-$mq_960: "#{$screen} and (max-width: 960px)";
-$mq_1000: "#{$screen} and (max-width: 1000px)";
-$mq_1024: "#{$screen} and (max-width: 1023px)";
-$mq_1100: "#{$screen} and (max-width: 1100px)";
-$mq_1200: "#{$screen} and (max-width: 1200px)";
-$mq_1225: "#{$screen} and (max-width: 1225px)";
-$mq_1300: "#{$screen} and (max-width: 1300px)";
-$mq_1400: "#{$screen} and (max-width: 1400px)";
-$mq_1500: "#{$screen} and (max-width: 1500px)";
-$mq_1460: "#{$screen} and (max-width: 1460px)";
-$mq_600_up: "#{$screen} and (min-width: 601px)";
+$media_350: "#{$screen} and (max-width: 350px)";
+$media_415: "#{$screen} and (max-width: 415px)";
+$media_500: "#{$screen} and (max-width: 500px)";
+$media_575: "#{$screen} and (max-width: 575px)";
+$media_600: "#{$screen} and (max-width: 600px)";
+$media_750: "#{$screen} and (max-width: 750px)";
+$media_768: "#{$screen} and (max-width: 768px)";
+$media_800: "#{$screen} and (max-width: 800px)";
+$media_960: "#{$screen} and (max-width: 960px)";
+$media_1000: "#{$screen} and (max-width: 1000px)";
+$media_1024: "#{$screen} and (max-width: 1023px)";
+$media_1100: "#{$screen} and (max-width: 1100px)";
+$media_1200: "#{$screen} and (max-width: 1200px)";
+$media_1225: "#{$screen} and (max-width: 1225px)";
+$media_1300: "#{$screen} and (max-width: 1300px)";
+$media_1400: "#{$screen} and (max-width: 1400px)";
+$media_1500: "#{$screen} and (max-width: 1500px)";
+$media_1460: "#{$screen} and (max-width: 1460px)";
+$media_600_up: "#{$screen} and (min-width: 601px)";
 
-@mixin mq_350 {
-  @media #{$mq_350} {@content}
+@mixin media_350 {
+  @media #{$media_350} {@content}
 }
-@mixin mq_415 {
-  @media #{$mq_415} {@content}
+@mixin media_415 {
+  @media #{$media_415} {@content}
 }
-@mixin mq_500 {
-  @media #{$mq_500} {@content}
+@mixin media_500 {
+  @media #{$media_500} {@content}
 }
-@mixin mq_575 {
-  @media #{$mq_575} {@content}
+@mixin media_575 {
+  @media #{$media_575} {@content}
 }
-@mixin mq_600 {
-  @media #{$mq_600} {@content}
+@mixin media_600 {
+  @media #{$media_600} {@content}
 }
-@mixin mq_750 {
-  @media #{$mq_750} {@content}
+@mixin media_750 {
+  @media #{$media_750} {@content}
 }
-@mixin mq_768 {
-  @media #{$mq_768} {@content}
+@mixin media_768 {
+  @media #{$media_768} {@content}
 }
-@mixin mq_800 {
-  @media #{$mq_800} {@content}
+@mixin media_800 {
+  @media #{$media_800} {@content}
 }
-@mixin mq_960 {
-  @media #{$mq_960} {@content}
+@mixin media_960 {
+  @media #{$media_960} {@content}
 }
-@mixin mq_1000 {
-  @media #{$mq_1000} {@content}
+@mixin media_1000 {
+  @media #{$media_1000} {@content}
 }
-@mixin mq_1024 {
-  @media #{$mq_1024} {@content}
+@mixin media_1024 {
+  @media #{$media_1024} {@content}
 }
-@mixin mq_1100 {
-  @media #{$mq_1100} {@content}
+@mixin media_1100 {
+  @media #{$media_1100} {@content}
 }
-@mixin mq_1200 {
-  @media #{$mq_1200} {@content}
+@mixin media_1200 {
+  @media #{$media_1200} {@content}
 }
-@mixin mq_1225 {
-  @media #{$mq_1225} {@content}
+@mixin media_1225 {
+  @media #{$media_1225} {@content}
 }
-@mixin mq_1300 {
-  @media #{$mq_1300} {@content}
+@mixin media_1300 {
+  @media #{$media_1300} {@content}
 }
-@mixin mq_1400 {
-  @media #{$mq_1400} {@content}
+@mixin media_1400 {
+  @media #{$media_1400} {@content}
 }
-@mixin mq_1500 {
-  @media #{$mq_1500} {@content}
+@mixin media_1500 {
+  @media #{$media_1500} {@content}
 }
-@mixin mq_600_up {
-  @media #{$mq_600_up} {@content}
+@mixin media_600_up {
+  @media #{$media_600_up} {@content}
 }

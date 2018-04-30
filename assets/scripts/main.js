@@ -53,8 +53,10 @@ $(window).scroll(function() { sticky_navigation(); });
 APPLY "CONTAINER" CLASS TO P ELEMENTS IN SINGLE POST
 */
 
-$('.wrap--single header,.wrap--single p, .wrap--single h2, .wrap--single h3, .wrap--single ul:not(.picture)').each(function() {
-  $(this).addClass('container');
+$('.wrap--single header, .wrap--single p, .wrap--single h2, .wrap--single h3, .wrap--single ul:not(.picture)').each(function() {
+  if (!$(this).find('img').length) {
+    $(this).addClass('container');
+  }
 });
 
 /*
@@ -67,13 +69,72 @@ if ($('body').hasClass('single-project')) {
 }
 
 /*
-PORTFOLIO SINGLE PAGE: SCROLLS DOWN ON PAGE LOAD 
+FRONT PAGE: CTA BUTTON SCROLLS DOWN AND DISPLAYS PORTFOLIO SECTION 
 */
 
-$('.button--showPortfolio').toggle(function() {
-  $('.portfolio').slideDown();
-}, function() {
-  $('.portfolio').slideUp();
+if ($('body').hasClass('home')) {
+  var current_url = location.search;
+  var portfolio = $('.portfolio');
+  var home_intro__cta = $('.home_intro__cta');
+  var portfolio_location = home_intro__cta.offset().top - 40;
+  if (current_url == '?portfolio=1') {
+    $('.portfolio').slideDown(0);
+    //$('html, body').animate({ scrollTop: portfolio_location }, 200);
+    $('html, body').animate({ scrollTop: portfolio_location }, 0);
+  }
+  else {
+    $('.button--showPortfolio, .menu_portfolio').click(function(e) {
+      e.preventDefault();
+      if (portfolio.is(':visible')) {
+        portfolio.slideUp(0);
+      }
+      else {
+        portfolio.slideDown(0);
+        $('html, body').animate({ scrollTop: portfolio_location }, 200);
+      }  
+    });
+  }
+}
+
+/*
+NAV MENU PORTFOLIO ITEM: REMOVE QUERYSTRING WHEN ON FRONT PAGE 
+*/
+
+if (!$('body').hasClass('home')) {
+  var portfolio_menu_item = $('.menu_portfolio a');
+  var portfolio_link = portfolio_menu_item.attr('href');
+  portfolio_menu_item.attr('href', portfolio_link + '?portfolio=1');
+}
+
+/*
+LIGHTBOX
+*/
+
+$('.element_triggering_light').click(function(e) {
+  e.preventDefault();
+  $('.lightbox').toggleClass('active');
+  $('html, body').toggleClass('no_scrollbar');
 });
+
+$('.lightbox_close, .lightbox').click(function() {
+  $('.lightbox').removeClass('active').toggleClass('no_scrollbar');
+  $('html, body').toggleClass('no_scrollbar');
+});
+
+$('.lightbox__inner').click(function(e) {
+  e.stopPropagation();
+});
+
+/*
+DETECTS SCROLLBAR WIDTH
+https://davidwalsh.name/detect-scrollbar-width
+*/
+
+var scrollDiv = document.createElement("div");
+scrollDiv.className = "scrollbar-measure";
+document.body.appendChild(scrollDiv);
+var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+$('.lightbox_close').css('right', scrollbarWidth);
+document.body.removeChild(scrollDiv);
 
 }); /* END OF jQuery(document).ready(function($) */

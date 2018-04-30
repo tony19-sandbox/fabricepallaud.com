@@ -13,6 +13,9 @@ $gray4: #aaaaaa;
 $gray5: #e8e8e8;
 $gray6: #d4d4d4;
 $gray7: #fcfcfc;
+$gray8: #d7d7d7;
+$gray9: #bbb;
+$gray95: #bbb;
 $trans_gray1: rgba(0,0,0,0.04);
 $trans_gray2: rgba(0,0,0,0.08);
 $github: #333333;
@@ -26,7 +29,6 @@ $content_width_small: 900px;
 
 /* Fonts */
 $regular_text: 'Source Serif Pro', sans-serif;
-/*$helvetica_regular: 'helvetica_regular', sans-serif;*/
 $helvetica_black: 'helvetica_black', sans-serif;
 $regular_sans: 'Lato', sans-serif;
 $verdana: 'verdana', sans-serif;
@@ -60,13 +62,29 @@ $verdana: 'verdana', sans-serif;
   font-family: $helvetica_black;
   letter-spacing: 0.03em;
   font-size: 19px;
+  @include media_600 {
+    font-size: 17px;
+  }
 }
 
 @mixin page_heading {
-  font-family: $helvetica_black;
-  font-size: 35px;
+  font-family: $helvetica_black;  
   line-height: 1;
   letter-spacing: 0.02em;
+  font-size: 50px;
+  @include media_768 {
+    font-size: 40px;
+  }
+}
+
+@mixin home_heading {
+  font-family: $helvetica_black;  
+  line-height: 1;
+  letter-spacing: 0.02em;
+  font-size: 42px;
+  @include media_768 {
+    font-size: 35px;
+  }
 }
 
 @mixin section_heading {
@@ -77,7 +95,6 @@ $verdana: 'verdana', sans-serif;
 
 @mixin subsection_heading {
   font-family: $regular_sans;
-  /*font-weight: bold;*/
   font-size: 23px;
 }
 
@@ -93,13 +110,13 @@ $verdana: 'verdana', sans-serif;
 }
 
 @mixin page_summary {
-  font-size: 2.3rem;
-  line-height: 1.5em;
+  font-size: 26px;
+  line-height: 1.4em;
   letter-spacing: 0.01em;
 }
 
 @mixin quote_button {
-  font-size: 2.5rem;
+  font-size: 35px;
   font-family: $helvetica_black;
   width: 30%;
   letter-spacing: -0.02em;
@@ -110,4 +127,16 @@ $verdana: 'verdana', sans-serif;
   font-size: 20px;
   color: $red;
   border-bottom: 1px solid $red;
+}
+
+@mixin label {
+  font-family: $regular_sans;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+@mixin footnote {
+  font-family: $regular_sans;
+  font-size: 16px;
+  color: $gray9;
 }

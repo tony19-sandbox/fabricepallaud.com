@@ -62,7 +62,7 @@ Template Name: Contact
           Let's talk !
         </h1>
         <p class="page_summary page_summary--contact">
-          Want to talk about you next project, or maybe just to ask a question? Please fill out the contact form below, or <a class="page_header_link" href="<?php bloginfo('wpurl'); ?>/quote">request a Quote</a>.
+          Want to talk about you next project, or maybe just to ask a question? Please fill out the contact form below.
         </p>
       </section>
 
