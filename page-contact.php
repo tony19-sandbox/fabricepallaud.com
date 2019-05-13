@@ -14,7 +14,6 @@ Template Name: Contact
     $missing_content = "Please supply all information.";
     $email_invalid = "Email Address Invalid.";
     $message_unsent = "Message was not sent. Please try Again.";
-    $success_message = "<div><strong>Message sent successfully!</strong>I'll be in touch ASAP.</div>";
 
     $form_sub = (isset($_POST['form_sub']) ? $_POST['form_sub'] : '');
     $form_name = (isset($_POST['form_name']) ? $_POST['form_name'] : '');

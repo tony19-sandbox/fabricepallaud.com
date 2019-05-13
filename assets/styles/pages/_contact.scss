@@ -65,8 +65,7 @@
 
 .contact_success div,
 .contact_success strong {
-  color: $green;
-  @include subsection_heading;  
+  @include subsection_heading;
   line-height: 2.2;
   @include media_768 {
     line-height: 1.5;
@@ -74,9 +73,10 @@
 }
 
 .contact_success strong {
+  color: $green;
   display: block;
   @include home_heading;
   @include media_768 {
-    margin-bottom: 20px;    
+    margin-bottom: 20px;
   }
 }

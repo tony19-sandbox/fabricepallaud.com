@@ -117,6 +117,7 @@ SENDING EMAIL
 */
 
 function send_email($form_email, $form_name, $form_message) {
+  $success_message = "<div><strong>Message sent successfully!</strong>I'll be in touch ASAP.</div>";
   $email_to = get_option('admin_email');
   $sender = $form_email;
   $email_subject = 'Message from '. get_bloginfo('name') . ' - ' . $form_email;
