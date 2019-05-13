@@ -45,21 +45,20 @@ if ($(window).width() > 768) {
     if (current_url == '?portfolio=1') {
       $('.portfolio').slideDown(0);
       $('html, body').animate({ scrollTop: portfolio_location }, 0);
+      $('.button--showPortfolio').text('hide case studies');
     }
-    else {
-      $('.button--showPortfolio, .menu_portfolio').click(function(e) {
-        e.preventDefault();
-        if (portfolio.is(':visible')) {
-          portfolio.slideUp(0);
-          $('.button--showPortfolio').text('see case studies');
-        }
-        else {
-          portfolio.slideDown(0);
-          $('html, body').animate({ scrollTop: portfolio_location }, 200);
-          $('.button--showPortfolio').text('hide case studies');
-        }  
-      });
-    }
+    $('.button--showPortfolio, .menu_portfolio').click(function(e) {
+      e.preventDefault();
+      if (portfolio.is(':visible')) {
+        portfolio.slideUp(0);
+        $('.button--showPortfolio').text('see case studies');
+      }
+      else {
+        portfolio.slideDown(0);
+        $('html, body').animate({ scrollTop: portfolio_location }, 200);
+        $('.button--showPortfolio').text('hide case studies');
+      }  
+    });
   }
 }
 
