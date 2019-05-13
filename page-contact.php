@@ -22,6 +22,7 @@ Template Name: Contact
     $form_message = (isset($_POST['form_message']) ? $_POST['form_message'] : '');
     $message_human = (isset($_POST['message_human']) ? $_POST['message_human'] : '');
     $response = '';
+    $message_sent = 0;
 
     if ($form_sub == 1) {
       if ((empty($form_name)) || (empty($form_message))) {
@@ -35,7 +36,10 @@ Template Name: Contact
           if ($message_human == 2) {
             ?>
             <div>
-              <?php send_email($form_email, $form_name, $form_message); ?>
+              <?php 
+              $message_sent = 1;
+              send_email($form_email, $form_name, $form_message);
+              ?>
             </div>
             <?php
           }
@@ -45,7 +49,7 @@ Template Name: Contact
         }
       }
     }
-    else {
+    if ($message_sent != 1) {
     ?>
       <section class="page_header page_header--contact">
         <h1 class="page_title">
