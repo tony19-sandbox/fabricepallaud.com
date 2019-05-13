@@ -26,9 +26,6 @@ Template Name: Front page
     </p>
 
     <div class="home_intro__cta">
-      <!-- <h2>
-        Case studies :
-      </h2> -->
       <a class="button button--showPortfolio">
         see case studies
       </a>
