@@ -1,66 +1,268 @@
 @import "core/variables";
 @import "core/normalize";
-@import "core/z-index";
 @import "core/fonts";
-@import "core/buttons";
-@import "core/headings";
 @import "core/media-queries";
 @import "core/header";
-@import "core/mobile_menu";
 @import "core/footer";
-@import "pages/home";
-@import url(https://fonts.googleapis.com/css?family=Molengo);
-@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
-
-html {
-  font-size: 62.5%;
-}
 
 body {
-  background: url( '../images/body.jpg' ) 50% 0 repeat; 
+  background: url('../images/body.jpg') 50% 0 repeat;
 }
 
-#tinymce {
-  background: $white;
+div {
+  box-sizing: border-box;
 }
 
 .wrap {
-  background: $white;
+  background-color: $white;
+  position: relative;
+  overflow: hidden;
+  padding: 70px 0 100px;
+  @include media_600 {
+    padding: 40px 0 50px;
+  }
+}
+
+.content_wrap {
+  padding: 50px 0;
 }
 
 .container {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: $content_width;
+  margin: 0 auto;
   overflow: hidden;
-  padding: 0 20px;
-  box-sizing: content-box;
+  @include media_1300 {
+    padding-left: $content_margin_mobile;
+    padding-right: $content_margin_mobile;
+  }
 }
 
-.wrap {
-  position: relative;
-  overflow: hidden;  
-}
-
-.page_content {
-  max-width: 1180px;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-}
-
-.full_width {
-  margin: 0 (-$mobile_side_margin);
+.overflow.container {
+  margin-bottom: 2em;
+  @include media_600 {
+    margin-bottom: 0;
+  }
 }
 
 a,
 body,
+div,
+span,
 p,
+li,
 textarea,
 input,
 select {
-  font-family: 'verdana', 'proxima', sans-serif;
-  font-size: 1.6rem;
-  line-height: 1.5;
-  color: $black;
+  @include regular_text;
+  color: $black1;
 }
+
+.button,
+a {
+  position: relative;
+}
+
+p.container,
+p {
+  margin-bottom: 1.5em;
+}
+
+.button:active,
+a:active {
+  top: 1px;
+}
+
+a.linktype1 {
+  font-family: $helvetica_black;
+  color: $red;
+}
+
+a.linktype2 {
+  font-family: $helvetica_black;
+  color: $white;
+}
+
+h1 {
+  @include page_heading;
+  margin: 0 0 30px;
+  @include media_600 {
+    margin: 0 0 15px;
+  }
+}
+
+h2,
+h2 span {
+  @include section_heading;
+  margin: 0 0 30px;
+  @include media_600 {
+    margin: 0 0 20px;
+  }
+}
+
+p + h2,
+p + h3 {
+  margin-top: 2em;
+}
+
+h3 {
+  @include subsection_heading;
+  margin: 0 0 15px;
+  @include media_600 {
+    margin: 0 0 10px;
+  }
+}
+
+h3.container {
+  margin-bottom: 15px;
+}
+
+.content a {
+  border-bottom: 1px solid $black1;
+}
+
+.content_ul li,
+.content li {
+  position: relative;
+  padding-left: 25px;
+}
+
+.content_ul li:before,
+.content li:before {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  font-family: 'icomoon' !important;
+  font-size: 15px;
+  content: "\ea1c";
+}
+
+.content .alignleft {
+  float: left;
+}
+
+.header_with_subtitle {
+  margin-bottom: 25px;
+}
+
+.header_with_subtitle h1 {
+  margin-bottom: 10px;
+}
+
+.page_header {
+  margin-bottom: 60px;
+  @include media_768 {
+    background: none !important;
+    padding-right: 0 !important;
+  }
+}
+
+.page_title {
+  @include page_heading;
+}
+
+.page_summary {
+  color: $gray4;
+  @include page_summary;
+  @include media_768 {
+    width: 100% !important;
+  }
+  @include media_600 {
+    margin-bottom: 0;
+  }
+}
+
+.page_summary strong {
+  color: $gray3;
+}
+
+.page_header_link {
+  @include page_summary;
+  color: $red;
+  border-bottom: 1px solid $red;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  @include label;
+}
+
+input {
+  width: 320px;
+  @include media_768 {
+    width: 100%;
+  }
+}
+
+input,
+textarea {
+  padding: 8px 10px;
+  border: 1px solid $gray8;
+  line-height: 1;
+  color: $black3;
+  border-radius: 3px;
+  background: $gray0;
+  box-sizing: border-box;
+}
+
+textarea {
+  width: 100%;
+  min-height: 240px;
+}
+
+label span {
+  font-family: $helvetica_black;
+  font-size: 22px;
+  color: $red;
+}
+
+.button {
+  padding: 12px 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  font-family: $helvetica_black;
+  text-transform: uppercase;
+  cursor: pointer;
+  // max-width: 150px !important;
+  max-width: 150px;
+  text-align: center;
+  display: block;
+  background: $gray0;
+  border-color: $gray8;
+  border-style: solid;
+  border-width: 1px;
+  color: $black1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 0 $white inset;
+  text-shadow: 0px 2px 1px $white;
+}
+
+.button:hover {
+  color: $black2;
+  background: $gray95;
+}
+
+.footnote {
+  @include footnote;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border:0;
+}
+
+.scrollbar-measure {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+  position: absolute;
+  top: -9999px;
+}
+
+@import "pages/frontpage";
+@import "pages/frontpage_section_portfolio";
+@import "pages/contact";
+@import "pages/about";
+@import "pages/single";

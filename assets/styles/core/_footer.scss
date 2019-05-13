@@ -1,117 +1,64 @@
 .footer {
-  margin-top: 30px;
-  background: url( '../images/footer.jpg' ) 50% 0 repeat-x;
+  background: url('../images/footer.jpg') 50% 0 repeat-x;
   height: 206px;
   box-sizing: border-box;
-  padding: 40px 0;
-  @include mq_768 {
-    padding-top: 48px;
+  padding: 40px 0;  
+  @include media_768 {
+    padding: 15px 0 20px;
+    height: auto;
+    background-size: cover;
   }
 }
 
 .container.container--footer {
-  display: table;
-  width: 100%;
-  overflow: visible;
-  @include mq_1225 {
-    box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  @include media_768 {
+    justify-content: center;
   }
 }
 
-.footer_logos_copyright,
-.footer_portfolio_artefacts {
-  font-family: 'helvetica_black', sans-serif;
+.footer__github,
+.footer__copyright {
   color: $white;
-  font-size: 18px;
-  line-height: 41px;
-  display: table-cell;
 }
 
-.footer_logos_copyright {
-  float: left;
-  margin-top: -3px;
-  @include mq_1024 {
-    margin-top: -6px;
-  }
-  @include mq_768 {
-    margin-top: -7px;
+.footer__github {
+  display: flex;
+  align-items: center;
+  transform: translateY(6px);
+  @include media_768 {
+    margin-left: -20px;
   }
 }
 
-.footer_logos_copyright img + img {
-  margin-left: 15px;
-  @include mq_600 {
-    margin-left: 12px;
-  }
-  @include mq_350 {
-    margin-left: 9px;
+.git {
+  margin-right: 1em;
+  @include media_600 {
+    max-width: 30px;
   }
 }
 
-.git,
-.sass,
-.gulp {
-  @include mq_1225 {
-    transform: scale(0.95);
-  }
-  @include mq_1024 {
-    transform: scale(0.85);
-  }
-  @include mq_768 {
-    transform: scale(1);
-  }
+.footer__github {
+  @include top_menu;
 }
 
-.footer_copyright {
-  display: inline-block;
-  margin-left: 20px;
+.footer__github a {
+  color: $white;
 }
 
-/*
-.wordpress {
-  @include mq_768 {
+.footer__github strong {
+  color: $red;
+}
+
+.footer__copyright {
+  margin-right: 35px;
+  @include media_600 {
     display: none;
   }
 }
 
-.slack {
-  margin-bottom: 3px;
-  @include mq_415 {
-    display: none;
-  }
-}
-*/
-
-.footer_portfolio_artefacts {
-  float: right;
-}
-
-.footer_portfolio_artefacts a + a {
-  margin-left: 16px;
-}
-
-/*
-.footer_logos_copyright img,
-.footer_logos_copyright div,
-.footer_portfolio_artefacts img,
-.footer_portfolio_artefacts div {
-*/
-.git,
-.sass,
-.gulp,
-.footer_copyright,
-.footer_sample,
-.footer_portfolio_artefacts__caption {
-  vertical-align: middle;
-  display: inline-block;
-}
-
-.footer_portfolio_artefacts .footer_portfolio_artefacts_caption {
-  @include mq_768 {
-    display: none;
-  }
-}
-
-.footer_portfolio_artefacts__caption span {
-  margin: 0 9px 0 13px;
+.header__branding--footer {
+  transform: scale(0.9);
 }

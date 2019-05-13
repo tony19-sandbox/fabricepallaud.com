@@ -1,45 +1,86 @@
 <?php
 /*
-Template Name: Page Home
+Template Name: Front page
 */
 ?>
 
-<div class='container container--home'>
-  
-  <h1 class='home_intro__title'>
-    Hi. I'm <span>Fabrice Pallaud</span>, WordPress developer.
-  </h1>
+<?php get_header(); ?>
 
-  <p class='home_intro__subtitle'>
-    See my <a href='<?php echo get_bloginfo("wpurl"); ?>/portfolio/'>portfolio</a>, 
-    get <a href='mailto:info@baiadesign.com'>in touch</a>.
-  </p>
+<div class="wrap wrap--front">
+  <div class="container container--home">
+    
+    <h1 class="home_intro__title">
+      Hi I'm <span>Fabrice</span>, Front-end Developer.
+    </h1>
 
-  <div class='home_links'>
-    <div class='home_link home_link--portfolio'>
-      <a href='<?php echo get_bloginfo('wpurl'); ?>/services/'>
-        <div class='home_link_disc'>
-          <img class='home_link_icon' src='<?php bloginfo( "template_url" ); ?>/dist/images/link_portfolio.png' />
-        </div>
-        What I do
+    <p class="home_intro__summary">
+      <span>
+        Experienced in <strong>Vue.js</strong>
+      </span>
+      <span>
+        <b>•</b> <strong>JavaScript/ES6</strong>
+      </span>
+      <span>
+        <b>•</b> <strong>PHP</strong>, <strong>WordPress</strong>
+      </span>
+    </p>
+
+    <div class="home_intro__cta">
+      <!-- <h2>
+        Case studies :
+      </h2> -->
+      <a class="button button--showPortfolio">
+        see case studies
       </a>
     </div>
-    <div class='home_link home_link--about'>
-      <a href='<?php echo get_bloginfo('wpurl'); ?>/about/'>
-        <div class='home_link_disc'>
-          <img class='home_link_icon' src='<?php bloginfo( "template_url" ); ?>/dist/images/link_about.png' />
-        </div>
-        Who I am
-      </a>
+
+    <div class="portfolio">
+      
+      <?php
+      $args = array(
+        'post_type' => 'project',
+        'posts_per_page' => -1,
+        'order' => 'ASC'
+      );
+      $projects = new WP_Query($args);
+      while ($projects->have_posts()) : $projects->the_post();
+      ?>          
+        <section class="portfolio_entry square_border">
+
+          <header class="portfolio_entry__header">
+            <a href="<?php the_permalink(); ?>">
+              <h2 class="portfolio_entry_title">
+                <?php the_field('front_page_title', false, false); ?>
+              </h2>
+            </a>
+            <a class="portfolio_entry_link" href="<?php the_permalink(); ?>">
+              see case study
+            </a>
+          </header>
+          
+          <a href="<?php the_permalink(); ?>">
+            <p class="portfolio_entry__maincontent">
+              <?php the_field('summary', false, false); ?>
+            </p>
+          </a>
+
+          <footer class="portfolio_entry__footer">
+            <div class="skills">
+              <?php the_field('skills'); ?>
+            </div>
+            <div class="time_to_read">
+              <?php the_field('reading_time'); ?>
+            </div>
+          </footer>
+
+        </section>
+
+      <?php
+      endwhile;
+      ?>
     </div>
-    <div class='home_link home_link--contact'>
-      <a href='mailto:info@baiadesign.com'>
-        <div class='home_link_disc'>
-          <img class='home_link_icon' src='<?php bloginfo( "template_url" ); ?>/dist/images/link_contact.png' />
-        </div>
-        Get in touch
-      </a>
-    </div>
+    
   </div>
-
 </div>
+
+<?php get_footer(); ?>
