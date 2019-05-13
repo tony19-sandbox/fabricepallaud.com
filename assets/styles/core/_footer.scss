@@ -1,10 +1,12 @@
 .footer {
-  background: url( '../images/footer.jpg' ) 50% 0 repeat-x;
+  background: url('../images/footer.jpg') 50% 0 repeat-x;
   height: 206px;
   box-sizing: border-box;
   padding: 40px 0;  
   @include media_768 {
-    padding-top: 48px;
+    padding: 15px 0 20px;
+    height: auto;
+    background-size: cover;
   }
 }
 
@@ -12,6 +14,9 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 6px;
+  @include media_768 {
+    justify-content: center;
+  }
 }
 
 .footer__github,
@@ -23,10 +28,16 @@
   display: flex;
   align-items: center;
   transform: translateY(6px);
+  @include media_768 {
+    margin-left: -20px;
+  }
 }
 
 .git {
   margin-right: 1em;
+  @include media_600 {
+    max-width: 30px;
+  }
 }
 
 .footer__github {
@@ -34,7 +45,11 @@
 }
 
 .footer__github a {
-  margin-left: 0.5em;
+  color: $white;
+}
+
+.footer__github strong {
+  color: $red;
 }
 
 .footer__copyright {

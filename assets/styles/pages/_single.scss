@@ -6,13 +6,24 @@
   margin-bottom: 1em;
 }
 
+.wrap--single p img {
+  max-width: 100%;
+  height: auto;
+}
+
 .wrap--single .container {
   max-width: $content_width_small;
+  @include media_600 {
+    max-width: none;
+  }
 }
 
 .wrap--single ul + h3,
 .wrap--single p + h3 {
   margin-top: 3em;
+  @include media_600 {
+    margin-top: 2em;
+  }
 }
 
 .picture {
@@ -23,6 +34,16 @@
   border-width: 1px 0 1px 0;
   padding: 40px 0 30px;
   margin: 2em 0 4em;
+  @include media_1400 {
+    padding-left: $content_margin_mobile;
+    padding-right: $content_margin_mobile;
+    flex-wrap: wrap;
+  }
+  @include media_600 {
+    justify-content: space-between;
+    margin-bottom: 2.5em;
+    padding-bottom: 0;
+  }
 }
 
 .container + .picture {
@@ -32,51 +53,29 @@
 .picture li {
   padding: 0 25px;
   @include legend;
+  @include media_1300 {
+    margin-bottom: 30px;
+  }
+  @include media_768 {
+    max-width: 161px;
+  }
+  @include media_600 {
+    padding: 0;
+    width: 50%;
+  }
 }
 
 .picture li:before {
   display: none;
 }
 
-.wrap--single img {
-  margin: 0 auto 3em;
+.wrap--single img {  
   display: block;
-}
-
-/*
-.wrap--single .codecolorer-container {
-  border: none;
-  max-width: $content_width_small;
-  margin: 2em auto 4em;
-  @include media_1200 {
-    padding-left: $content_margin_mobile;
-    padding-right: $content_margin_mobile;
+  margin: 0 auto 3em;
+  @include media_600 {
+    margin-bottom: 1.5em;
   }
 }
-
-.codecolorer-container table td.line-numbers {
-  padding: 0 20px !important;  
-  background-color: #dfdfdf !important;
-  border: none !important;
-}
-
-.codecolorer-container div.codecolorer {
-  padding-left: 20px;
-  background-color: #f0f0f0;
-}
-
-.codecolorer-container table td.line-numbers div,
-div .codecolorer,
-div .codecolorer span {
-  padding: 25px 0;
-  @include code;
-}
-
-.codecolorer-container table td.line-numbers div {
-  color: #aaa;
-  min-width: 0 !important;
-}
-*/
 
 pre {
   border-radius: 0;
@@ -86,11 +85,27 @@ pre {
     padding-left: $content_margin_mobile;
     padding-right: $content_margin_mobile;
   }
+  @include media_600 {
+    margin: 2em auto 2em !important;
+  }
 }
 
 code[class*="language-"] span,
 pre[class*="language-"] span {
   @include code;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  @include media_600 {
+    line-height: 1.2 !important;
+  }
+}
+
+pre[class*="language-"] {
+  @include media_600 {
+    padding-top: 0 !important;
+  }
 }
 
 .overflow {
@@ -101,11 +116,33 @@ pre[class*="language-"] span {
 .jseditor {
   width: 150px;
   float: left;
+  @include media_960 {
+    width: auto;
+    float: none;
+  }
 }
 
 .jseditor_text {
   width: 710px;
-  float: right;  
+  float: right;
+  @include media_960 {
+    width: auto;
+    float: none;
+  }
+}
+
+.jseditor img {
+  @include media_960 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.jseditor_text p {
+  @include media_960 {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .no_scrollbar {
@@ -114,3 +151,7 @@ pre[class*="language-"] span {
   padding: 0;
   overflow: hidden;
 }
+
+
+
+

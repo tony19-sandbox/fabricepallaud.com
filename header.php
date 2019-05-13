@@ -23,14 +23,10 @@
     </a>
     <ul class="social_links">
       <li>
-        <a class="linkedin" href="https://www.linkedin.com/in/fabrice-pallaud-b8b4ba24/">
-          <i class="fa fa-linkedin" aria-hidden="true"></i>
-        </a>
+        <a class="linkedin" href="https://www.linkedin.com/in/fabrice-pallaud-b8b4ba24/"></a>
       </li>
       <li>
-        <a class="github" href="https://github.com/baiadesign">
-          <i class="fa fa-github" aria-hidden="true"></i>
-        </a>
+        <a class="github" href="https://github.com/fabricepallaud"></a>
       </li>
     </ul>    
   </div>
@@ -41,5 +37,5 @@
     <div class="container container--nav_primary">
       <?php wp_nav_menu(array('menu' => 'main_menu')); ?>
     </div>
-  </nav>  
+  </nav>
 </div>

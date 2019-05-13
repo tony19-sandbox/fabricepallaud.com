@@ -4,15 +4,6 @@ define('IMAGES_URL', get_bloginfo('stylesheet_directory') . '/dist/images');
 define('IMAGES_PATH', get_stylesheet_directory() . '/dist/images');
 
 /*
-SUPPORTS FEATURED IMAGE AND DEFINES THUMBNAIL CUSTOM SIZES
-*/
-
-add_theme_support('post-thumbnails');
-if (function_exists('add_image_size')) {
-  add_image_size('blog_post', 280, 200, true);  
-}
-
-/*
 JS
 */
 
@@ -30,9 +21,8 @@ CSS
 */
 
 function load_styles() {
-  //wp_enqueue_style( 'css_fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' ); 
   wp_enqueue_style('main_css', get_stylesheet_directory_uri() . '/dist/styles/main.css');
-  if (get_post_type() == 'project') {
+  if (get_post_type() === 'project') {
     wp_enqueue_style('prism', get_stylesheet_directory_uri() . '/dist/styles/prism.css');
   }  
 }
@@ -44,14 +34,6 @@ MENUS
 
 function register_menus() {
   register_nav_menu('main_menu', 'Main Menu');
-  /*
-  register_nav_menus(
-    array(
-    'main_menu' => __( 'Main Menu' ),
-    'legal_menu' => __( 'Legal Menu' )
-    )
-  );
-  */
 }
 add_action('after_setup_theme', 'register_menus');
 
@@ -61,7 +43,6 @@ FONTS
 
 function wpb_add_google_fonts() {
   wp_enqueue_style( 'wpb-google-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300,600', false );
-  //wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,700', false );
 }
 add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
 
@@ -115,5 +96,57 @@ function my_updated_messages_project($messages) {
   return $messages;
 }
 add_filter('post_updated_messages', 'my_updated_messages_project');
+
+/*
+HIDE ADMIN BAR
+*/
+
+add_filter('show_admin_bar', '__return_false');
+
+/*
+CONTACT FORM ERROR MESSAGES
+*/
+
+function generate_response($type, $message) {
+  $t = $type === 'success' ? 'success' : 'error';
+  return "<div class='$t'>$message</div><br/>"; 
+}
+
+/*
+SENDING EMAIL
+*/
+
+function send_email($form_email, $form_name, $form_message) {
+  $email_to = get_option('admin_email');
+  $sender = $form_email;
+  $email_subject = 'Message from '. get_bloginfo('name') . ' - ' . $form_email;
+
+  $headers = "From: '" . $form_name . "' <" . $form_email . "> \r\n";
+  $headers .= "Reply-To: ". strip_tags($form_email) . "\r\n";
+  $headers .= "Content-Type:text/html;charset=utf-8";
+
+  $message_head_cell_color = "#eee";
+  $email_message = '<html><body>';
+  $email_message .= "<table rules='all' style='border-color: #aaa;' cellpadding='10'>";
+  $email_message .= "<tr><td style='background: " . $message_head_cell_color . ";'><strong>NAME:</strong> </td><td>" . $form_name . "</td></tr>";
+  $email_message .= "<tr><td style='background: " . $message_head_cell_color . ";'><strong>EMAIL:</strong> </td><td>" . $form_email . "</td></tr>";
+  $email_message .= "<tr><td style='background: " . $message_head_cell_color . ";'><strong>MESSAGE:</strong> </td><td>" . $form_message . "</td></tr>";
+  $email_message .= "</table>";
+  $email_message .= "</body></html>";
+  $email_message = nl2br($email_message);
+
+  $result_mail_function = wp_mail($email_to, $email_subject, $email_message, $headers);
+
+  wp_mail('fpallaud@hotmail.com', $email_subject, $email_message, $headers);
+  wp_mail('fabpallaud@gmail.com', $email_subject, $email_message, $headers);
+
+  if ($result_mail_function) {
+    $message_sent = 1;
+    echo '<div class="contact_success">' . $success_message . '</div>';
+  }
+  else {
+    echo "Your message wasn't send successfully, please email me at <strong>fabpallaud@gmail.com</strong>";
+  }
+}
 
 ?>

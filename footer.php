@@ -4,7 +4,9 @@
 
     <div class="footer__github">
       <img class="git" src="<?php bloginfo('template_url'); ?>/dist/images/git.png" />
-      Codebase on <a class="linktype1" href="https://github.com/Baia-design/fabricepallaud.com/tree/dev">GitHub</a>
+      <a class="linktype2" href="https://github.com/Baia-design/fabricepallaud.com/tree/dev">
+        This site's code on <strong>GitHub</strong>
+      </a>
     </div>
 
     <div class="footer__copyright">

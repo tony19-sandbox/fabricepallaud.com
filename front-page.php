@@ -14,12 +14,24 @@ Template Name: Front page
     </h1>
 
     <p class="home_intro__summary">
-      Specialized in <strong>PSD to WP</strong> precision work - Follower of <strong>best practices</strong> & latest trends - Used to work with <strong>  development & marketing agencies.</strong>
+      <span>
+        Experienced in <strong>Vue.js</strong>
+      </span>
+      <span>
+        <b>•</b> <strong>JavaScript/ES6</strong>
+      </span>
+      <span>
+        <b>•</b> <strong>PHP</strong>, <strong>WordPress</strong>
+      </span>
     </p>
 
     <div class="home_intro__cta">
-      <h2>my portfolio</h2>
-      <a class="button button--showPortfolio">expand</a>
+      <!-- <h2>
+        Case studies :
+      </h2> -->
+      <a class="button button--showPortfolio">
+        see case studies
+      </a>
     </div>
 
     <div class="portfolio">
@@ -36,17 +48,21 @@ Template Name: Front page
         <section class="portfolio_entry square_border">
 
           <header class="portfolio_entry__header">
-            <h2 class="portfolio_entry_title">
-              <?php the_field('front_page_title', false, false); ?>
-            </h2>
+            <a href="<?php the_permalink(); ?>">
+              <h2 class="portfolio_entry_title">
+                <?php the_field('front_page_title', false, false); ?>
+              </h2>
+            </a>
             <a class="portfolio_entry_link" href="<?php the_permalink(); ?>">
               see case study
             </a>
           </header>
-
-          <p class="portfolio_entry__maincontent">
-            <?php the_field('summary', false, false); ?>
-          </p>
+          
+          <a href="<?php the_permalink(); ?>">
+            <p class="portfolio_entry__maincontent">
+              <?php the_field('summary', false, false); ?>
+            </p>
+          </a>
 
           <footer class="portfolio_entry__footer">
             <div class="skills">

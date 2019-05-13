@@ -10,9 +10,9 @@ Template Name: About
 <div class="wrap">
   <div class="container content">
     
-    <div class="page_header">
+    <div class="page_header page_header--about">
       <h1 class="page_title">
-        Who's that guy?
+        Who's this?
       </h1>
       <p class="page_summary page_summary--about">
         Some general stuff about myself, my background and what I can do for you 

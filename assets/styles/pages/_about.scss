@@ -2,9 +2,18 @@
   overflow: visible;
 }
 
+.page_header--about {
+  @include media_600 {
+    margin-bottom: 40px;
+  }
+}
+
 .content--about {
   display: flex;
   justify-content: space-between;
+  @include media_768 {
+    flex-direction: column-reverse;
+  }
 }
 
 .page_summary--about {
@@ -13,17 +22,26 @@
 
 .about_info {
   width: 55%;
+  @include media_768 {
+    width: auto;
+  }
 }
 
-.about_illustration {
-  width: 40%;
+.about_illustration {  
   text-align: right;
+  width: 40%;
+  @include media_768 {
+    width: auto;
+  }
 }
 
-.about_illustration__img {
-  margin-top: -185px;
+.about_illustration__img {  
   max-width: 100%;
   height: auto;
+  margin-top: -185px;
+  @include media_768 {
+    margin: 0 0 30px;
+  }
 }
 
 .about_skills {
@@ -32,9 +50,7 @@
 }
 
 .about_skills strong {
-  background: #d7f3ff;
   background: $yellow;
-  /*background: #f4f4f4;*/
   padding: 0 5px;
   margin: 0 3px;
 }

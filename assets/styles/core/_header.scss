@@ -1,6 +1,6 @@
 .banner {  
   width: 100%;  
-  background: url(../images/header.jpg) 50% 0 repeat-x;  
+  background: url(../images/header.jpg) 50% 0 repeat-x;
   @include media_600 {
     display: none;
   }
@@ -50,21 +50,6 @@
   z-index: 2;
 }
 
-/*
-.logo_desktop {
-  @include media_600 {
-    display: none;
-  }
-}
-
-.logo_mobile {
-  display: none;
-  @include media_600 {
-    display: block;
-  }
-}
-*/
-
 .logo_square {
   position: absolute;
   width: 145px;
@@ -88,11 +73,15 @@
 }
 
 .social_links a.linkedin {
-  background: $linkedin;
+  background-color: $linkedin;
+  background-image: url(../images/linkedin-in.svg);
+  background-size: 22px auto;
 }
 
 .social_links a.github {
-  background: $github;
+  background-color: $github;
+  background-image: url(../images/github.svg);
+  background-size: 27px auto;
 }
 
 .social_links a {
@@ -101,6 +90,8 @@
   line-height: 41px;
   text-align: center;
   display: inline-block;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;  
 }
 
 .social_links i {
@@ -113,23 +104,25 @@
   padding-top: 5px;
 }
 
+.nav_primary_wrap,
+.nav_primary {
+  height: 54px;
+}
+
+.nav_primary_wrap {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
 .nav_primary {
   background: $brown;
   padding: 12px 0;
   height: 54px;
-  box-sizing: border-box;
+  box-sizing: border-box;  
   @include media_600 {
-    height: auto;
     overflow: hidden;
   }
-}
-
-.nav_primary_fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
 }
 
 .nav_primary_regular {
@@ -154,6 +147,12 @@
   @include media_750 {
     padding-left: 0 !important;
     background: none !important;
+  }
+}
+
+.nav_primary li:nth-child(n+2) {
+  @include media_600 {
+    transform: translateY(3px);
   }
 }
 
@@ -295,4 +294,9 @@
 .nav_primary li.current-menu-item a,
 .nav_primary a:hover {
   color: $red;
+}
+
+.header_hidden {
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
 }
