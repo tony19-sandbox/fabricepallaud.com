@@ -21,6 +21,9 @@ body {
   margin: 0;  
   text-align: center;
   margin-bottom: 30px;
+  @include media_600 {
+    margin-bottom: 50px;
+  }
 }
 
 .home_intro__title,
@@ -31,6 +34,9 @@ body {
 .home_intro__summary {  
   margin-bottom: 40px;
   text-align: center;
+  @include media_600 {
+    margin-bottom: 60px;
+  }
 }
 
 .home_intro__summary, 
@@ -70,16 +76,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 60px 0 75px;  
+  margin: 60px 0 75px;
   @include media_600 {
-    margin: 60px 0 40px;
+    display: none;
   }
   h2 {
     margin: 0 15px 0 0;
-  }
-  a {
-    @include media_600 {
-      display: none;
-    }
   }
 }

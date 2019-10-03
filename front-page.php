@@ -36,8 +36,7 @@ Template Name: Front page
       <?php
       $args = array(
         'post_type' => 'project',
-        'posts_per_page' => -1,
-        'order' => 'ASC'
+        'posts_per_page' => -1
       );
       $projects = new WP_Query($args);
       while ($projects->have_posts()) : $projects->the_post();
@@ -61,14 +60,16 @@ Template Name: Front page
             </p>
           </a>
 
-          <footer class="portfolio_entry__footer">
-            <div class="skills">
-              <?php the_field('skills'); ?>
-            </div>
-            <div class="time_to_read">
-              <?php the_field('reading_time'); ?>
-            </div>
-          </footer>
+          <a href="<?php the_permalink(); ?>">
+            <footer class="portfolio_entry__footer">
+              <div class="skills">
+                <?php the_field('skills'); ?>
+              </div>
+              <div class="time_to_read">
+                <?php the_field('reading_time'); ?>
+              </div>
+            </footer>
+          </a>
 
         </section>
 

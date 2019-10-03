@@ -10,8 +10,6 @@
 </head>
 <body <?php body_class(); ?>>
 
-<?php ini_set('display_errors', 'on'); error_reporting(E_ALL); ?>
-
 <header class="banner">
   <div class="container container--header">
     <a class="header__branding" href="<?php bloginfo('wpurl'); ?>">
