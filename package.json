@@ -1,0 +1,30 @@
+{
+  "name": "fabricepallaud",
+  "version": "1.0.0",
+  "description": "My world-class Nuxt.js project",
+  "author": "Fabrice Pallaud",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "nuxt": "^2.0.0",
+    "vue-ripple-directive": "^2.0.1"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/router": "^1.5.0",
+    "@nuxtjs/toast": "^3.2.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.1.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0"
+  }
+}
