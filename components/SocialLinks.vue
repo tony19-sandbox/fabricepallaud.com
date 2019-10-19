@@ -30,7 +30,6 @@ export default {
     display: none;
     position: absolute;
     top: 12px;
-    // right: 20px;
     right: 70px;
     z-index: 0;
 

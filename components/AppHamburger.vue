@@ -11,11 +11,6 @@
 import { mapState } from 'vuex'
 
 export default {
-  // data () {
-  //   return {
-  //     isActive: false
-  //   }
-  // },
   computed: {
     ...mapState({
       mobileMenuOpen: state => state.mobileMenuOpen
@@ -51,7 +46,6 @@ $hamburger-button_bar_thickness: 2px;
 .hamburger-button span:after {
   height: $hamburger-button_bar_thickness;
   width: $hamburger-button_width;
-  // background: $light_blue;
   background: $white;
   position: absolute;
   display: block;

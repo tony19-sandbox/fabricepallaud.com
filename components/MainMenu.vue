@@ -4,13 +4,13 @@
       <div class="container container--nav_primary">
         <ul>
           <li
-            v-for="item in items"
-            :key="item.ID"
-            :class="item.classes[0]"
-            @click="handleClick(item.title)"
+            v-for="(item, i) in menu"
+            :key="i"
+            :class="item.icon"
+            @click="handleClick(item.name)"
           >
             <nuxt-link :to="item.url.replace('http://fabricepallaud.com', '')">
-              {{ item.title }}
+              {{ item.name }}
             </nuxt-link>
           </li>
         </ul>
@@ -30,6 +30,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { MainMenu } from '@/utils/structures'
 import SocialLinks from '@/components/SocialLinks'
 import AppHamburger from '@/components/AppHamburger'
 import MobileNavigation from '@/components/MobileNavigation'
@@ -42,7 +43,8 @@ export default {
   },
   data () {
     return {
-      items: []
+      items: [],
+      menu: MainMenu
     }
   },
   computed: {
@@ -51,15 +53,6 @@ export default {
       mobileMenuOpen: state => state.mobileMenuOpen,
       portfolioOpen: state => state.portfolioOpen
     })
-  },
-  mounted () {
-    this.$axios.$get(`${this.baseUrl}/wp-json/menus/v1/main_menu`)
-      .then((res) => {
-        this.items = res
-      })
-      .catch((err) => {
-        this.$toast.error(err.response)
-      })
   },
   methods: {
     handleClick (item) {

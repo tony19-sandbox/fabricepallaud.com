@@ -44,9 +44,3 @@ export function createRouter () {
     ]
   })
 }
-
-router.beforeEach((to, from, next) => {
-  store.commit('SET_MOBILE_MENU', false)
-  store.commit('SET_PORTFOLIO', false)
-  next()
-})

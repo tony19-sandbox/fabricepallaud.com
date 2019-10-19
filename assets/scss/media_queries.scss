@@ -1,21 +1,6 @@
 $screen: "only screen";
-$landscape: "#{$screen} and (orientation: landscape)";
-$portrait: "#{$screen} and (orientation: portrait)";
-$retina: (
-  "#{$screen} and (-webkit-min-device-pixel-ratio: 2)",
-  "#{$screen} and (min--moz-device-pixel-ratio: 2)",
-  "#{$screen} and (-o-min-device-pixel-ratio: 2/1)",
-  "#{$screen} and (min-device-pixel-ratio: 2)",
-  "#{$screen} and (min-resolution: 192dpi)",
-  "#{$screen} and (min-resolution: 2dppx)"
-);
 
-/* Retina */
-@mixin retina {
-  @media #{$retina} {@content}
-}
-
-/* Breakpoints */
+// Breakpoints
 $media_350: "#{$screen} and (max-width: 350px)";
 $media_415: "#{$screen} and (max-width: 415px)";
 $media_500: "#{$screen} and (max-width: 500px)";

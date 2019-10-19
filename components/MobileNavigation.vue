@@ -3,12 +3,12 @@
     <nav v-if="mobileMenuOpen" class="mobile-navigation">
       <ul>
         <li
-          v-for="item in items"
-          :key="item.ID"
-          :class="item.classes[0]"
+          v-for="(item, i) in menu"
+          :key="i"
+          :class="item.icon"
         >
           <nuxt-link :to="item.url.replace(baseUrl, '')">
-            {{ item.title }}
+            {{ item.name }}
           </nuxt-link>
         </li>
       </ul>
@@ -23,6 +23,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { MainMenu } from '@/utils/structures'
 import SocialLinks from '@/components/SocialLinks'
 
 export default {
@@ -31,7 +32,8 @@ export default {
   },
   data () {
     return {
-      items: []
+      items: [],
+      menu: MainMenu
     }
   },
   computed: {
@@ -39,15 +41,6 @@ export default {
       mobileMenuOpen: state => state.mobileMenuOpen,
       baseUrl: state => state.baseUrl
     })
-  },
-  mounted () {
-    this.$axios.$get(`${this.baseUrl}/wp-json/menus/v1/main_menu`)
-      .then((res) => {
-        this.items = res
-      })
-      .catch((err) => {
-        this.$toast.error(err.response)
-      })
   }
 }
 </script>

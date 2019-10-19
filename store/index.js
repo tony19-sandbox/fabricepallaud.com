@@ -1,5 +1,5 @@
 export const state = () => ({
-  baseUrl: 'http://fabricepallaud.com',
+  baseUrl: 'http://fabricepallaud.com/wp',
   showCookieNotice: false,
   mobileMenuOpen: false,
   portfolioOpen: false

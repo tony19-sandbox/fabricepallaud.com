@@ -32,7 +32,6 @@ export default {
         this.title = res.post_title
         this.content = res.post_content
         // this.skills = res.acf.skills
-        // console.log(res)
       })
       .catch((err) => {
         this.$toast.error(err)

@@ -1,6 +1,6 @@
-export default async ({ app }) => {
+export default ({ app }) => {
   app.router.afterEach((to, from) => {
-    store.commit('SET_MOBILE_MENU', false)
-    store.commit('SET_PORTFOLIO', false)
+    app.store.commit('SET_MOBILE_MENU', false)
+    app.store.commit('SET_PORTFOLIO', false)
   })
 }

@@ -37,9 +37,7 @@ export default {
   transition: opacity .3s ease;
   box-shadow: 0 5px 8px rgba(17, 43, 66, 0.1);
   border-radius: 5px;
-  // background-color: map-get($colors-neutral, '800');
   background-color: #ddd;
-  // color: map-get($colors, 'white');
   font-size: 1rem;
   font-family: sans-serif;
   padding: 1.5rem 4rem 1.5rem 1.6rem;
@@ -55,19 +53,6 @@ export default {
   @include media_600 {
     width: calc(100% - 2.4rem);
   }
-
-  // @include breakpoint(large) {
-  //   width: 60rem;
-  //   max-width: calc(100% - 3.2rem);
-  //   padding-top: 1.2rem;
-  //   padding-bottom: 1.2rem;
-  //   bottom: 1.6rem;
-  // }
-
-  a {
-    // color: map-get($colors-primary, '500');
-  }
-
 }
 
 // .button-notice-close {
@@ -87,25 +72,17 @@ export default {
   position: absolute;
   top: 1.7rem;
   right: 1.7rem;
-  // width: $mobile_menu_button_width;
-  // height: $mobile_menu_button_bar_space;
   width: 20px;
   height: 11px;
   padding-top: 11px;
   box-sizing: content-box;
   z-index: 2;
   cursor: pointer;
-
-  // @include mobile {
-  //   display: block;
-  // }
 }
 
 .button-notice-close span,
 .button-notice-close span:before,
 .button-notice-close span:after {
-  // height: $mobile_menu_button_bar_thickness;
-  // width: $mobile_menu_button_width;
   height: 4px;
   width: 20px;
   background: $gray3;
@@ -115,12 +92,10 @@ export default {
 }
 
 .button-notice-close span:before {
-  // top: -$mobile_menu_button_bar_space;
   top: -11px;
 }
 
 .button-notice-close span:after {
-  // bottom: -$mobile_menu_button_bar_space;
   bottom: -11px;
 }
 
