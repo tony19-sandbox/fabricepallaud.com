@@ -1,6 +1,7 @@
 
 export default {
-  mode: 'universal',
+  // mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -25,11 +26,18 @@ export default {
   css: [
     '~assets/scss/main.scss'
   ],
+  styleResources: {
+    scss: [
+      './assets/scss/variables.scss',
+      './assets/scss/media_queries.scss'
+    ]
+  },
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    // '~/plugins/ripple.js'
+    '~/plugins/ripple.client.js',
+    '~/plugins/navigation-guards-client.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -45,7 +53,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/router',
-    '@nuxtjs/toast'
+    '@nuxtjs/toast',
+    '@nuxtjs/style-resources'
   ],
   /*
   ** Axios module configuration
@@ -53,7 +62,6 @@ export default {
   */
   axios: {
   },
-
   toast: {
     position: 'bottom-right',
     action: {
@@ -63,7 +71,10 @@ export default {
     className: 'app-toast',
     duration: 2500
   },
-  
+  router: {
+    // middleware: ['mobile-menu']
+    mode: 'hash'
+  },  
   /*
   ** Build configuration
   */

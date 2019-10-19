@@ -1,105 +1,99 @@
 <template>
-  <header class="banner">
-    <div class="container container--header">
-      <a class="header__branding" href="/">
-        <img
-          class="header__branding__logo"
-          src="@/assets/img/logo_desktop.svg"
-        >
-        <div class="logo_square" />
-      </a>
-      <ul class="social_links">
-        <li>
-          <a class="linkedin" href="https://www.linkedin.com/in/fabrice-pallaud-b8b4ba24/" />
-        </li>
-        <li>
-          <a class="github" href="https://github.com/fabricepallaud" />
-        </li>
-      </ul>
-    </div>
-  </header>
+  <div>
+    <header class="banner">
+      <div class="container container--header">
+        <a class="header__branding" href="/">
+          <img
+            class="header__branding__logo"
+            src="@/assets/img/logo_desktop.svg"
+          >
+          <div class="logo_square" />
+        </a>
+
+        <social-links />
+      </div>
+    </header>
+
+    <main-menu />
+  </div>
 </template>
 
-<!-- <script>
-  import { mapState, mapGetters } from 'vuex'
-  import { HeaderMenu } from '../utils/structures'
-  import AppHamburger from '@/components/AppHamburger'
+<script>
+import SocialLinks from '@/components/SocialLinks'
+import MainMenu from '@/components/MainMenu'
 
-  export default {
-    components: {
-      MobileNavigation
-    },
-    data () {
-      return {
-        menu: HeaderMenu,
-        showSearch: false
-      }
-    },
-    computed: {
-      ...mapState({
-        mobileMenuOpen: state => state.mobileMenuOpen,
-        showMainBanner: state => state.config.showMainBanner
-      }),
-      ...mapGetters({
-        isLoggedIn: 'auth/isLoggedIn',
-        userAvatar: 'auth/userAvatar'
-      }),
-      accountLink () {
-        return this.$device.isMobile ? '/account' : '/account/gegevens'
-      }
-    },
-    methods: {
-      triggerLogin () {
-        this.$store.commit('modal/COMPONENT', 'AppOnboarding')
-        this.$store.commit('modal/OPEN', true)
-      }
-    }
+export default {
+  components: {
+    SocialLinks,
+    MainMenu
   }
+}
 </script>
 
 <style lang="scss">
-  .app-header {
-    position: relative;
-    height: 6.4rem;
+.banner {
+  width: 100%;
+  background: url(~assets/img/header.jpg) 50% 0 repeat-x;
+  @include media_600 {
+    display: none;
   }
+}
 
-  .app-header-content {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    height: 6.4rem;
-    padding: 1.2rem;
-    z-index: 99;
+.container.container--nav_primary {
+  overflow: visible;
+}
 
-    @include breakpoint(large) {
-      padding: 1.2rem 3.2rem;
-    }
-
+.container.container--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include media_1225 {
+    box-sizing: border-box;
   }
+}
 
-  .header-logo-container {
-    position: relative;
-    flex: 1;
-
-    .site-logo-link {
-      display: inline-block;
-      margin-right: 2.4rem;
-      outline: none;
-      cursor: pointer;
-    }
-
-    .svg-inline-logo {
-      height: 2.4rem;
-      width: 9rem;
-
-      svg {
-        width: auto;
-      }
-    }
+.banner,
+.container.container--header {
+  height: 152px;
+  @include media_800 {
+    height: 120px;
   }
-</style> -->
+}
+
+.header__branding {
+  width: 215px;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+.header__branding:active {
+  top: 0;
+}
+
+.header__branding:active .header__branding__logo {
+  transform: translateY(calc(-50% + 1px));
+}
+
+.header__branding__logo {
+  width: 100%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.logo_square {
+  position: absolute;
+  width: 145px;
+  height: 100%;
+  background: $red;
+  left: 121px;
+  top: 0;
+}
+
+.header_hidden {
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+}
+</style>

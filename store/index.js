@@ -1,22 +1,18 @@
-// export const state = () => ({
-//   data: {},
-//   coupon: {}
-// })
+export const state = () => ({
+  baseUrl: 'http://fabricepallaud.com',
+  showCookieNotice: false,
+  mobileMenuOpen: false,
+  portfolioOpen: false
+})
 
-// export const mutations = {
-//   SET_DEAL (state, data) {
-//     state.data = data
-//   }
-// }
-
-// export const actions = {
-//   get ({ commit, state }, id) {
-//     return new Promise((resolve, reject) => {
-//       return this.$axios.$get('http://fabricepallaud.com/wp-json/projects/v1/post')
-//         .then((res) => {
-//           commit('SET_DEAL', res.data.data)
-//           resolve(res.data.data)
-//         }).catch(e => reject(e))
-//     })
-//   },
-// }
+export const mutations = {
+  SET_COOKIE_NOTICE_STATUS (state, value) {
+    state.showCookieNotice = value
+  },
+  SET_MOBILE_MENU (state, data) {
+    state.mobileMenuOpen = data
+  },
+  SET_PORTFOLIO (state, data) {
+    state.portfolioOpen = data
+  }
+}

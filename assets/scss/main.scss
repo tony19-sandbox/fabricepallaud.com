@@ -1,13 +1,13 @@
-@import "core/variables";
-@import "core/normalize";
-@import "core/fonts";
-@import "core/media-queries";
-@import "core/header";
-@import "core/footer";
-@import "core/toast";
+@import "variables";
+@import "normalize";
+@import "fonts";
+@import "media_queries";
+@import "toast";
+@import "single";
 
 body {
   background: url('~assets/img/body.jpg') 50% 0 repeat;
+  overflow-y: scroll;
 }
 
 div {
@@ -33,6 +33,10 @@ div {
   margin: 0 auto;
   overflow: hidden;
   @include media_1300 {
+    padding-left: $content_margin_desktop;
+    padding-right: $content_margin_desktop;
+  }
+  @include media_600 {
     padding-left: $content_margin_mobile;
     padding-right: $content_margin_mobile;
   }
@@ -218,14 +222,14 @@ label span {
 }
 
 .button {
-  padding: 12px 10px;
+  padding: 12px 25px;
   border-radius: 5px;
   font-size: 18px;
   letter-spacing: 0.02em;
   font-family: $helvetica_black;
   text-transform: uppercase;
   cursor: pointer;
-  max-width: 150px;
+  // max-width: 200px;
   text-align: center;
   display: block;
   background: $gray0;
@@ -260,9 +264,3 @@ iframe {
   position: absolute;
   top: -9999px;
 }
-
-@import "pages/frontpage";
-@import "pages/frontpage_section_portfolio";
-@import "pages/contact";
-@import "pages/about";
-@import "pages/single";

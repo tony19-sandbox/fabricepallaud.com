@@ -27,6 +27,7 @@ $mobile_menu_bg: rgba(32, 32, 32, 0.92);
 
 /* Misc */
 $content_margin_mobile: 20px;
+$content_margin_desktop: 30px;
 $content_width: 1200px;
 $content_width_small: 900px;
 
@@ -80,6 +81,15 @@ $lato: 'Lato', sans-serif;
   @include media_600 {
     font-size: 17px;
   }
+}
+
+@mixin mobile_menu {
+  font-family: $lato;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: normal;
+  line-height: 2.8;
+  color: $white;
 }
 
 @mixin page_heading {
@@ -136,12 +146,6 @@ $lato: 'Lato', sans-serif;
   @include media_600 {
     font-size: 20px;
   }
-}
-
-@mixin mobile_menu {
-  font-family: $helvetica_black;
-  font-weight: normal;
-  font-size: 25px;
 }
 
 @mixin page_summary {
