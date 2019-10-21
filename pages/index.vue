@@ -21,7 +21,7 @@
         <a
           v-ripple
           class="button button--showPortfolio"
-          @click="$store.commit('SET_PORTFOLIO', !portfolioOpen)"
+          @click="handleClick"
         >
           see case studies
         </a>
@@ -44,6 +44,14 @@ export default {
     ...mapState({
       portfolioOpen: state => state.portfolioOpen
     })
+  },
+  methods: {
+    handleClick () {
+      this.$store.commit('SET_PORTFOLIO', !this.portfolioOpen)
+      setTimeout(() => {
+        window.scrollTo(0, window.scrollY + document.querySelector('.portfolio').getBoundingClientRect().top - 30)
+      }, 300)
+    }
   }
 }
 </script>

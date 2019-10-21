@@ -13,7 +13,7 @@
 
       <section class="content content--contact">
         <div class="contact_form">
-          <form action="#" method="post">
+          <form action="" method="post">
             <!-- <?php if ($response !== '') echo generate_response('error', $response); ?> -->
             <p>
               <label for="form_name">
@@ -24,6 +24,7 @@
                 minlength="3"
                 type="text"
                 name="form_name"
+                required
               >
             </p>
             <p>
@@ -34,6 +35,7 @@
                 class="required"
                 type="email"
                 name="form_email"
+                required
               >
             </p>
             <p>
@@ -44,6 +46,7 @@
                 class="required"
                 minlength="5"
                 name="form_message"
+                required
               ></textarea>
             </p>
             <p>
@@ -55,6 +58,7 @@
                 class="required"
                 type="text"
                 name="message_human"
+                required
               >
               <span id="human_op">+ 3 = <strong>5</strong></span>
             </p>

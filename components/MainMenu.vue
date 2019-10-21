@@ -58,6 +58,9 @@ export default {
     handleClick (item) {
       if (item === 'Portfolio') {
         this.$store.commit('SET_PORTFOLIO', !this.portfolioOpen)
+        setTimeout(() => {
+          window.scrollTo(0, document.querySelector('.portfolio').getBoundingClientRect().top - 30)
+        }, 300)
       }
     }
   }
