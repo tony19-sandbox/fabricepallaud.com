@@ -1,1 +1,0 @@
-vue2-smooth-scroll.client.js

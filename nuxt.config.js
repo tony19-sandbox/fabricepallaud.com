@@ -37,8 +37,6 @@ export default {
   */
   plugins: [
     '~/plugins/ripple.client.js',
-    // '~/plugins/scroll-ease-efficient.client.js',
-    // '~/plugins/vue-scrollto.client.js',
     '~/plugins/navigation-guards-client.js'
   ],
   /*
