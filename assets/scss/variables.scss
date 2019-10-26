@@ -108,7 +108,7 @@ $lato: 'Lato', sans-serif;
 
 @mixin home_heading {
   font-family: $helvetica_black;  
-  line-height: 1;
+  line-height: 1.3;
   letter-spacing: 0.02em;
   font-size: 42px;
   @include media_768 {
@@ -116,7 +116,7 @@ $lato: 'Lato', sans-serif;
   }
   @include media_600 {
     font-size: 38px;
-    line-height: 1.1;
+    line-height: 1.2;
   }
 }
 

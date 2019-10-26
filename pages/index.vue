@@ -23,11 +23,14 @@
           class="button button--showPortfolio"
           @click="handleClick"
         >
-          see case studies
+          {{ ctaCaption }}
         </a>
       </div>
 
-      <portfolio v-show="portfolioOpen" />
+      <portfolio
+        :projects="projects"
+        :class="{ open : isOpen }"
+      />
     </div>
   </div>
 </template>
@@ -40,17 +43,54 @@ export default {
   components: {
     Portfolio
   },
+  data () {
+    return {
+      projects: [],
+      portfolioLocation: 0,
+      isOpen: true,
+      ctaCaptions: [
+        'see case studies',
+        'hide case studies'
+      ],
+      ctaCaption: ''
+    }
+  },
   computed: {
     ...mapState({
-      portfolioOpen: state => state.portfolioOpen
+      baseUrl: state => state.baseUrl
     })
+  },
+  mounted () {
+    this.portfolioLocation = window.scrollY + document.querySelector('.portfolio').getBoundingClientRect().top - 30
+    this.isOpen = false
+    this.ctaCaption = this.ctaCaptions[0]
+
+    this.$axios.$get(`${this.baseUrl}/wp-json/last_projects/v1/posts`)
+      .then((res) => {
+        this.projects = res
+      })
+      .catch((err) => {
+        this.$toast.error(err.response)
+      })
   },
   methods: {
     handleClick () {
-      this.$store.commit('SET_PORTFOLIO', !this.portfolioOpen)
-      setTimeout(() => {
-        window.scrollTo(0, window.scrollY + document.querySelector('.portfolio').getBoundingClientRect().top - 30)
-      }, 300)
+      const portfolioElement = document.querySelector('.portfolio')
+      if (!this.isOpen) {
+        portfolioElement.style.display = 'block'
+        this.isOpen = true
+        this.ctaCaption = this.ctaCaptions[1]
+        window.scrollTo({
+          top: this.portfolioLocation,
+          left: 0,
+          behavior: 'smooth'
+        })
+      } else {
+        this.isOpen = false
+        this.ctaCaption = this.ctaCaptions[0]
+        portfolioElement.style.display = 'none'
+        window.scrollTo(0, 0)
+      }
     }
   }
 }

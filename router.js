@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Index from '~/pages/index.vue'
 import About from '~/pages/about.vue'
 import Contact from '~/pages/contact.vue'
+import Portfolio from '~/pages/portfolio.vue'
 import Project from '~/pages/project/_id.vue'
 import ProjectSlug from '~/pages/project/slug/index.vue'
 import Privacy from '~/pages/privacy.vue'
@@ -25,6 +26,10 @@ export function createRouter () {
       {
         path: '/contact',
         component: Contact
+      },
+      {
+        path: '/portfolio',
+        component: Portfolio
       },
       {
         path: '/project/:id',

@@ -7,7 +7,6 @@
             v-for="(item, i) in menu"
             :key="i"
             :class="item.icon"
-            @click="handleClick(item.name)"
           >
             <nuxt-link :to="item.url.replace('http://fabricepallaud.com', '')">
               {{ item.name }}
@@ -50,19 +49,8 @@ export default {
   computed: {
     ...mapState({
       baseUrl: state => state.baseUrl,
-      mobileMenuOpen: state => state.mobileMenuOpen,
-      portfolioOpen: state => state.portfolioOpen
+      mobileMenuOpen: state => state.mobileMenuOpen
     })
-  },
-  methods: {
-    handleClick (item) {
-      if (item === 'Portfolio') {
-        this.$store.commit('SET_PORTFOLIO', !this.portfolioOpen)
-        setTimeout(() => {
-          window.scrollTo(0, document.querySelector('.portfolio').getBoundingClientRect().top - 30)
-        }, 300)
-      }
-    }
   }
 }
 </script>

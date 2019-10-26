@@ -1,3 +1,4 @@
+const axios = require('axios')
 
 export default {
   // mode: 'universal',
@@ -85,5 +86,9 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+  generate: {
+    routes: () => axios.get('http://fabricepallaud.com/wp/wp-json/projects/v1/posts')
+      .then(res => res.data.map((project) => `/project/${project.ID}/${project.post_name}`))
+  },
 }

@@ -42,6 +42,15 @@ div {
   }
 }
 
+// .container {
+//   transition: all .5s cubic-bezier(.55,0,.1,1);
+// }
+
+// .page-enter-active,
+// .page-leave-active {
+//   transition: opacity .5s
+// }
+
 .overflow.container {
   margin-bottom: 2em;
   @include media_600 {

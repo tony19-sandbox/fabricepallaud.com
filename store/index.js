@@ -1,8 +1,7 @@
 export const state = () => ({
   baseUrl: 'http://fabricepallaud.com/wp',
   showCookieNotice: false,
-  mobileMenuOpen: false,
-  portfolioOpen: false
+  mobileMenuOpen: false
 })
 
 export const mutations = {
@@ -11,8 +10,5 @@ export const mutations = {
   },
   SET_MOBILE_MENU (state, data) {
     state.mobileMenuOpen = data
-  },
-  SET_PORTFOLIO (state, data) {
-    state.portfolioOpen = data
   }
 }

@@ -33,32 +33,25 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
-  data () {
-    return {
-      projects: []
+  props: {
+    projects: {
+      type: Array,
+      default: null
     }
-  },
-  computed: {
-    ...mapState({
-      baseUrl: state => state.baseUrl
-    })
-  },
-  mounted () {
-    this.$axios.$get(`${this.baseUrl}/wp-json/projects/v1/posts`)
-      .then((res) => {
-        this.projects = res
-      })
-      .catch((err) => {
-        this.$toast.error(err.response)
-      })
   }
 }
 </script>
 
 <style lang="scss">
+.portfolio {
+  display: none;
+
+  &.open {
+    display: block;
+  }
+}
+
 .button--showPortfolio {
   max-width: none;
   padding-left: 25px;

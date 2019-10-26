@@ -17,6 +17,6 @@ export const MainMenu = [
   {
     name: 'Portfolio',
     icon: 'menu_portfolio',
-    url: '/'
+    url: '/portfolio'
   }
 ]
