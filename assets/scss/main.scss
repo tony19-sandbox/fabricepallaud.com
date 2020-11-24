@@ -42,15 +42,6 @@ div {
   }
 }
 
-// .container {
-//   transition: all .5s cubic-bezier(.55,0,.1,1);
-// }
-
-// .page-enter-active,
-// .page-leave-active {
-//   transition: opacity .5s
-// }
-
 .overflow.container {
   margin-bottom: 2em;
   @include media_600 {
@@ -71,19 +62,29 @@ select {
   color: $black1;
 }
 
-.button,
-a {
-  position: relative;
-}
-
 p.container,
 p {
   margin-bottom: 1.5em;
 }
 
-.button:active,
-a:active {
-  top: 1px;
+.button,
+a {
+  position: relative;
+
+  &:active {
+    top: 1px;
+  }
+
+  &.underline:after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: $red;
+    width: 100%;
+  }
 }
 
 a.linktype1 {
@@ -99,6 +100,7 @@ a.linktype2 {
 h1 {
   @include page_heading;
   margin: 0 0 30px;
+  
   @include media_600 {
     margin: 0 0 15px;
   }

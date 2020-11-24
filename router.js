@@ -7,7 +7,7 @@ import Contact from '~/pages/contact.vue'
 import Portfolio from '~/pages/portfolio.vue'
 import Project from '~/pages/project/_id.vue'
 import ProjectSlug from '~/pages/project/slug/index.vue'
-import Privacy from '~/pages/privacy.vue'
+import CookiePolicy from '~/pages/cookie-policy.vue'
 
 Vue.use(Router)
 
@@ -43,8 +43,8 @@ export function createRouter () {
         ]
       },
       {
-        path: '/privacy',
-        component: Privacy
+        path: '/cookie-policy',
+        component: CookiePolicy
       }
     ]
   })

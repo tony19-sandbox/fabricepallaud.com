@@ -19,10 +19,11 @@ $gray8: #d7d7d7;
 $gray9: #bbbbbb;
 $gray95: #f0f0f0;
 $green: #24b502;
+$green_transparent: rgba(36, 181, 2, 0.075);
 $trans_gray1: rgba(0,0,0,0.04);
 $trans_gray2: rgba(0,0,0,0.08);
 $github: #333333;
-$linkedin: #0274b3;
+$linkedin: #1c70b2;
 $mobile_menu_bg: rgba(32, 32, 32, 0.92);
 
 /* Misc */
@@ -94,7 +95,7 @@ $lato: 'Lato', sans-serif;
 
 @mixin page_heading {
   font-family: $helvetica_black;  
-  line-height: 1;
+  line-height: 1.1;
   letter-spacing: 0.02em;
   font-size: 50px;
   @include media_768 {

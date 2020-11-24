@@ -1,5 +1,5 @@
 <template>
-  <div class="nav_primary_wrap">
+  <div :class="{ sticky: isSticky }" class="nav_primary_wrap">
     <nav class="nav_primary">
       <div class="container container--nav_primary">
         <ul>
@@ -16,9 +16,9 @@
 
         <social-links :menu-bar="true" />
         <app-hamburger
-          class="app-hamburger"
-          aria-label="button-menu"
           @click.native="$store.commit('SET_MOBILE_MENU', !mobileMenuOpen)"
+          aria-label="button-menu"
+          class="app-hamburger"
         />
       </div>
     </nav>
@@ -29,6 +29,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import debounce from 'lodash.debounce'
 import { MainMenu } from '@/utils/structures'
 import SocialLinks from '@/components/SocialLinks'
 import AppHamburger from '@/components/AppHamburger'
@@ -43,7 +44,9 @@ export default {
   data () {
     return {
       items: [],
-      menu: MainMenu
+      menu: MainMenu,
+      menuLocation: null,
+      isSticky: false
     }
   },
   computed: {
@@ -51,6 +54,21 @@ export default {
       baseUrl: state => state.baseUrl,
       mobileMenuOpen: state => state.mobileMenuOpen
     })
+  },
+  mounted () {
+    this.menuLocation = window.scrollY + document.querySelector('.nav_primary_wrap').getBoundingClientRect().top
+
+    this.debouncedScroll = debounce(this.handleSCroll, 5)
+    window.addEventListener('scroll', this.debouncedScroll)
+    this.handleSCroll()
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.debouncedScroll)
+  },
+  methods: {
+    handleSCroll (event) {
+      this.isSticky = window.scrollY > this.menuLocation
+    }
   }
 }
 </script>
@@ -61,6 +79,24 @@ export default {
   height: 54px;
 }
 
+.nav_primary_wrap {
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  @include media_600 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
 .nav_primary_regular {
   position: relative;
 }
@@ -68,12 +104,7 @@ export default {
 .nav_primary {
   background: $brown;
   padding: 12px 0;
-  height: 54px;
   box-sizing: border-box;
-
-  @include media_600 {
-    overflow: hidden;
-  }
 
   ul {
     display: flex;
@@ -82,158 +113,121 @@ export default {
 
   li {
     padding-left: 35px;
-    background-repeat: no-repeat;
     position: relative;
     font-family: 'icomoon';
     font-size: 22px;
-    speak: none;
     font-style: normal;
     font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
     line-height: 1;
+
     @include media_750 {
       padding-left: 0 !important;
       background: none !important;
     }
-  }
 
-  li:before {
-    position: absolute;
-    top: 3px;
-    left: 0;
-    @include media_750 {
-      display: none;
+    & + li {
+      margin-left: 60px;
+      @include media_800 {
+        margin-left: 40px;
+      }
+      @include media_750 {
+        margin-left: 35px;
+      }
+      @include media_600 {
+        margin-left: 29px;
+      }
     }
-  }
 
-  li + li {
-    margin-left: 60px;
-    @include media_800 {
-      margin-left: 40px;
+    &:before {
+      position: absolute;
+      top: 3px;
+      left: 0;
+      @include media_750 {
+        display: none;
+      }
     }
-    @include media_750 {
-      margin-left: 35px;
-    }
-    @include media_600 {
-      margin-left: 29px;
-    }
-  }
 
-  li.menu_portfolio,
-  li.menu_quote {
-    float: right;
-    @include media_600 {
-      float: left;
-    }
-  }
-
-  a {
-    @include top_menu;
-    color: $white;
-    display: block;
-  }
-
-  .menu_home {
-    @include media_960 {
-      display: none;
-    }
-    @include media_600 {
+    a {
+      @include top_menu;
+      color: $white;
       display: block;
-      text-indent: -9999px;
-      background-size: contain !important;
-      width: 25px;
-      height: 28px;
-      background: url('~assets/img/logo_mobile.svg') 0 50% no-repeat !important;
     }
-  }
-}
 
-.nav_primary .menu_home a {
-  transition: none;
-}
+    &.menu-home {
+      @include media_960 {
+        display: none;
+      }
 
-.nav_primary .menu_home:before {
-  content: "\e902";
-}
+      @include media_600 {
+        display: block;
+        text-indent: -9999px;
+        background-size: contain !important;
+        width: 25px;
+        height: 28px;
+        background: url('~assets/img/logo_mobile.svg') 0 50% no-repeat !important;
+      }
 
-.nav_primary .menu_home.menu_home--sticky {
-  display: block;
-  text-indent: -9999px;
-  background: url( '~assets/img/logo_desktop.svg' ) 0 50% no-repeat !important;
-  background-size: contain !important;
-  width: 150px;
-  height: 30px;
-  padding-left: 0;
-  position: relative;
-  margin-right: 43px;
-}
+      &:before {
+        content: "\e902";
+      }
+    }
 
-.nav_primary .menu_home.menu_home--sticky:after {
-  position: absolute;
-  content: '';
-  left: 85px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100px;
-  height: 54px;
-  background: $red;
-  z-index: -1;
+    &.menu-about {
+      background-position: 0 1px;
+      padding-left: 32px;
 
-}
+      @include media_960 {
+        margin: 0;
+      }
+      @include media_600 {
+        margin-left: 32px;
+      }
 
-.nav_primary .menu_about {
-  background-position: 0 1px;
-  padding-left: 32px;
-  @include media_960 {
-    margin: 0;
-  }
-  @include media_600 {
-    margin-left: 32px;
-  }
-}
+      &:before {
+        content: "\e971";
+      }
+    }
 
-.nav_primary .menu_about:before {
-  content: "\e971";
-}
+    &.menu-contact {
+      @include media_600 {
+        margin-left: 0;
+      }
 
-.nav_primary .menu_contact {
-  @include media_600 {
-    margin-left: 0;
-  }
-}
+      &:before {
+        content: "\e96b";
+        top: 4px;
+      }
+    }
 
-.nav_primary .menu_contact:before {
-  content: "\e96b";
-  top: 4px;
-}
+    &.menu-portfolio {
+      margin-left: auto;
+      padding-left: 39px;
 
-.nav_primary .menu_portfolio {
-  margin-left: auto;
-  padding-left: 39px;
-  @include media_600 {
-    display: none;
-  }
-}
+      @include media_600 {
+        display: none;
+      }
 
-.nav_primary .menu_portfolio:before {
-  content: "\e90f";
-}
+      &:before {
+        content: "\e90f";
+      }
+    }
 
-.nav_primary .menu_portfolio a {
-  color: $yellow;
-  @include media_600 {
-    color: $white;
-  }
-  @include media_415 {
-    color: $yellow;
-  }
-}
+    &.menu-portfolio a {
+      color: $yellow;
+      @include media_600 {
+        color: $white;
+      }
+      @include media_415 {
+        color: $yellow;
+      }
+    }
 
-.nav_primary .menu_about,
-.nav_primary .menu_contact {
-  @include media_600 {
-    display: none;
+    &.menu-about,
+    &.menu-contact {
+      @include media_600 {
+        display: none;
+      }
+    }
   }
 }
 

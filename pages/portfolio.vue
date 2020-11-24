@@ -36,6 +36,16 @@ export default {
     })
   },
   mounted () {
+    // const options = {
+    //   easing: 'ease-in',
+    //   offset: -60,
+    //   force: true
+    // }
+    setTimeout(() => {
+      // this.$scrollTo('.portfolio', '', options)
+    }, 2000)
+    // this.$scrollTo('.portfolio', '', options)
+
     this.$axios.$get(`${this.baseUrl}/wp-json/projects/v1/posts`)
       .then((res) => {
         this.projects = res

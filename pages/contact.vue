@@ -13,66 +13,80 @@
 
       <section class="content content--contact">
         <div class="contact_form">
-          <form action="" method="post">
-            <!-- <?php if ($response !== '') echo generate_response('error', $response); ?> -->
-            <p>
-              <label for="form_name">
-                Name<span> *</span>
-              </label>
+          <div v-if="!success">
+            <form @submit.prevent="sendEmail">
+              <!-- <?php if ($response !== '') echo generate_response('error', $response); ?> -->
+              <p>
+                <label for="form_name">
+                  Name<span> *</span>
+                </label>
+                <input
+                  v-model="contactName"
+                  class="required"
+                  minlength="3"
+                  type="text"
+                  name="contact_name"
+                  required
+                >
+              </p>
+              <p>
+                <label for="form_email">
+                  Email<span> *</span>
+                </label>
+                <input
+                  v-model="contactEmail"
+                  class="required"
+                  type="email"
+                  name="contact_email"
+                  required
+                >
+              </p>
+              <p>
+                <label for="form_message">
+                  Message<span> *</span>
+                </label>
+                <textarea
+                  v-model="contactMessage"
+                  class="required"
+                  minlength="5"
+                  name="contact_message"
+                  required
+                ></textarea>
+              </p>
+              <p>
+                <label for="message_human">
+                  Robot check<span> *</span>
+                </label>
+                <input
+                  id="message_human"
+                  v-model="messageHuman"
+                  class="required"
+                  type="text"
+                  name="message_human"
+                  required
+                >
+                <span id="human_op">+ 3 = <strong>5</strong></span>
+              </p>
               <input
-                class="required"
-                minlength="3"
-                type="text"
-                name="form_name"
-                required
+                type="submit"
+                class="button"
+                value="Send"
               >
-            </p>
-            <p>
-              <label for="form_email">
-                Email<span> *</span>
-              </label>
               <input
-                class="required"
-                type="email"
-                name="form_email"
-                required
+                type="hidden"
+                name="form_sub"
+                value="1"
               >
-            </p>
+            </form>
+          </div>
+          <div v-else class="success">
+            <h2>
+              Success!
+            </h2>
             <p>
-              <label for="form_message">
-                Message<span> *</span>
-              </label>
-              <textarea
-                class="required"
-                minlength="5"
-                name="form_message"
-                required
-              ></textarea>
+              Thanks, your message was sent and I'll get back to you ASAP.
             </p>
-            <p>
-              <label for="message_human">
-                Robot check<span> *</span>
-              </label>
-              <input
-                id="message_human"
-                class="required"
-                type="text"
-                name="message_human"
-                required
-              >
-              <span id="human_op">+ 3 = <strong>5</strong></span>
-            </p>
-            <input
-              type="submit"
-              class="button"
-              value="Send"
-            >
-            <input
-              type="hidden"
-              name="form_sub"
-              value="1"
-            >
-          </form>
+          </div>
         </div>
 
         <div class="contact_sidebar">
@@ -87,6 +101,40 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      success: false,
+      contactName: null,
+      contactEmail: null,
+      contactMessage: null,
+      messageHuman: null
+    }
+  },
+  methods: {
+    sendEmail () {
+      const formData = new FormData()
+      formData.append('contact_name', this.contactName)
+      formData.append('contact_email', this.contactEmail)
+      formData.append('contact_message', this.contactMessage)
+      // this.$axios.$put(`${this.baseUrl}/wp-json/contact/v1/send`, {
+      //   contact_name: this.contactName,
+      //   contact_email: this.contactEmail,
+      //   contact_message: this.contactMessage
+      // })
+      this.$axios.$put(`${this.baseUrl}/wp-json/contact/v1/send`, formData)
+        .then((res) => {
+          this.success = true
+        })
+        .catch((err) => {
+          this.$toast.error(err.response)
+        })
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 .page_header.page_header--contact {
@@ -169,6 +217,17 @@
   @include home_heading;
   @include media_768 {
     margin-bottom: 20px;
+  }
+}
+
+.success {
+  background-color: $green_transparent;
+  padding: 30px;
+  border-radius: 3px;
+
+  h2,
+  p {
+    color: $green;
   }
 }
 </style>

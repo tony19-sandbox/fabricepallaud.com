@@ -1,7 +1,7 @@
 <template>
   <div
-    class="hamburger-button"
     :class="{'active': mobileMenuOpen}"
+    class="hamburger-button"
   >
     <span />
   </div>

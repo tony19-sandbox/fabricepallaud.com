@@ -2,12 +2,15 @@
   <div v-if="showCookieNotice" class="cookie-notice">
     <div class="notice-text">
       <span>
-        This site uses cookies to ensure you get the best experience and also to analyze traffic.
-        To learn more about these cookies,
-        see the <nuxt-link to="/privacy">cookie policy</nuxt-link>.
+        This site uses cookies to analyze traffic. To learn more about these cookies,
+        see the <nuxt-link to="/cookie-policy" class="underline">cookie policy</nuxt-link>.
       </span>
     </div>
-    <div class="button-notice-close button-close" aria-label="button-close" @click="closeNotice">
+    <div
+      @click="closeNotice"
+      class="button-notice-close button-close"
+      aria-label="button-close"
+    >
       <span />
     </div>
   </div>
@@ -34,12 +37,11 @@ export default {
 
 <style lang="scss">
 .cookie-notice {
+  line-height: 1.3;
   transition: opacity .3s ease;
   box-shadow: 0 5px 8px rgba(17, 43, 66, 0.1);
   border-radius: 5px;
   background-color: #ddd;
-  font-size: 1rem;
-  font-family: sans-serif;
   padding: 1.5rem 4rem 1.5rem 1.6rem;
   position: fixed;
   z-index: 2;
@@ -53,24 +55,20 @@ export default {
   @include media_600 {
     width: calc(100% - 2.4rem);
   }
+
+  a {
+    color: $red;
+  }
+
+  span,
+  a {
+    font-size: 19px;
+  }
 }
-
-// .button-notice-close {
-//   position: absolute;
-//   top: 1.9rem;
-//   right: 1.7rem;
-//   width: 2rem;
-//   height: 2rem;
-//   // color: map-get($colors-neutral, '400');
-
-//   &:hover {
-//     background-color: transparent;
-//   }
-// }
 
 .button-notice-close {
   position: absolute;
-  top: 1.7rem;
+  top: 1.6rem;
   right: 1.7rem;
   width: 20px;
   height: 11px;

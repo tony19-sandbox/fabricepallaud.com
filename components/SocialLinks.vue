@@ -1,10 +1,16 @@
 <template>
-  <ul class="social_links" :class="{ 'menu-bar': menuBar }">
+  <ul :class="{ 'menu-bar': menuBar }" class="social_links">
     <li>
-      <a class="linkedin" href="https://www.linkedin.com/in/fabrice-pallaud-b8b4ba24/" />
+      <a
+        href="https://www.linkedin.com/in/fabrice-pallaud-b8b4ba24/"
+        class="linkedin"
+      />
     </li>
     <li>
-      <a class="github" href="https://github.com/fabricepallaud" />
+      <a
+        href="https://github.com/fabricepallaud"
+        class="github"
+      />
     </li>
   </ul>
 </template>

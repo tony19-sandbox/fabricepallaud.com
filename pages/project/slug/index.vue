@@ -5,6 +5,7 @@
         <h1 v-html="title" />
         <!-- <div class="skills skills--single" v-html="skills" /> -->
       </header>
+
       <div v-html="content" />
     </div>
   </div>
@@ -41,18 +42,42 @@ export default {
 </script>
 
 <style lang="scss">
-.skills--single {
-  @include small_text;
+.wrap--single {
+  .skills--single {
+    @include small_text;
+  }
+
+  li {
+    img {
+      margin-bottom: 1em;
+    }
+  }
+
+  p, div {
+    a {
+      color: $red;
+      border-color: $red;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
 }
 
-.wrap--single li img {
-  margin-bottom: 1em;
-}
+// .skills--single {
+//   @include small_text;
+// }
 
-.wrap--single p img {
-  max-width: 100%;
-  height: auto;
-}
+// .wrap--single li img {
+//   margin-bottom: 1em;
+// }
+
+// .wrap--single p img {
+//   max-width: 100%;
+//   height: auto;
+// }
 
 .wrap--single .container {
   max-width: $content_width_small;
@@ -77,11 +102,13 @@ export default {
   border-width: 1px 0 1px 0;
   padding: 40px 0 30px;
   margin: 2em 0 4em;
+
   @include media_1400 {
     padding-left: $content_margin_mobile;
     padding-right: $content_margin_mobile;
     flex-wrap: wrap;
   }
+
   @include media_600 {
     justify-content: space-between;
     margin-bottom: 2.5em;
@@ -95,13 +122,17 @@ export default {
 
 .picture li {
   padding: 0 25px;
+
   @include legend;
+
   @include media_1300 {
     margin-bottom: 30px;
   }
+
   @include media_768 {
     max-width: 161px;
   }
+
   @include media_600 {
     padding: 0;
     width: 50%;
@@ -116,6 +147,7 @@ export default {
   display: block;
   height: auto;
   margin: 0 auto 3em;
+
   @include media_600 {
     margin-bottom: 1.5em;
   }
@@ -125,10 +157,12 @@ pre {
   border-radius: 0;
   max-width: $content_width_small;
   margin: 2em auto 4em !important;
+
   @include media_1200 {
     padding-left: $content_margin_mobile;
     padding-right: $content_margin_mobile;
   }
+
   @include media_600 {
     margin: 2em auto 2em !important;
   }
@@ -160,6 +194,7 @@ pre[class*="language-"] {
 .jseditor {
   width: 150px;
   float: left;
+
   @include media_960 {
     width: auto;
     float: none;
@@ -169,6 +204,7 @@ pre[class*="language-"] {
 .jseditor_text {
   width: 710px;
   float: right;
+
   @include media_960 {
     width: auto;
     float: none;

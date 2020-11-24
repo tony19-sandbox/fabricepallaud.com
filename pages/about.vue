@@ -5,13 +5,18 @@
         <h1 class="page_title">
           Who's this?
         </h1>
+
         <p class="page_summary page_summary--about">
           Some general stuff about myself, my background and what I can do for you
         </p>
       </div>
 
       <div class="content content--about">
-        <div class="about_info" v-html="content" />
+        <div
+          v-html="content"
+          class="about_info"
+        />
+
         <div class="about_illustration">
           <img class="about_illustration__img" src="@/assets/img/about.jpg">
         </div>

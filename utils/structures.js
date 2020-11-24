@@ -1,22 +1,22 @@
 export const MainMenu = [
   {
     name: 'Home',
-    icon: 'menu_home',
+    icon: 'menu-home',
     url: '/'
   },
   {
     name: 'About',
-    icon: 'menu_about',
+    icon: 'menu-about',
     url: '/about'
   },
   {
     name: 'Contact',
-    icon: 'menu_contact',
+    icon: 'menu-contact',
     url: '/contact'
   },
   {
     name: 'Portfolio',
-    icon: 'menu_portfolio',
+    icon: 'menu-portfolio',
     url: '/portfolio'
   }
 ]

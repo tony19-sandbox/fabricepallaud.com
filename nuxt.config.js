@@ -45,8 +45,12 @@ export default {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/google-analytics'
   ],
+  googleAnalytics: {
+    id: 'UA-151254386-1'
+  },
   /*
   ** Nuxt.js modules
   */
@@ -55,7 +59,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/router',
     '@nuxtjs/toast',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    'vue-scrollto/nuxt'
   ],
   /*
   ** Axios module configuration

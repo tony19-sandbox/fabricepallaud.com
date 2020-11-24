@@ -8,15 +8,23 @@
       >
         <header class="portfolio_entry__header">
           <nuxt-link :to="`/project/${project.ID}/${project.post_name}`">
-            <h2 class="portfolio_entry_title" v-html="project.acf.front_page_title" />
+            <h2
+              v-html="project.acf.front_page_title"
+              class="portfolio_entry_title"
+            />
           </nuxt-link>
+
           <nuxt-link :to="`/project/${project.ID}/${project.post_name}`" class="portfolio_entry_link">
-            see case study
+            <!-- see case study -->
+            see
           </nuxt-link>
         </header>
 
         <nuxt-link :to="`/project/${project.ID}/${project.post_name}`">
-          <p class="portfolio_entry__maincontent" v-html="project.acf.summary" />
+          <p
+            v-html="project.acf.summary"
+            class="portfolio_entry__maincontent"
+          />
         </nuxt-link>
 
         <nuxt-link :to="`/project/${project.ID}/${project.post_name}`">
@@ -24,7 +32,12 @@
             <div class="skills">
               {{ project.acf.skills }}
             </div>
-            <div class="time_to_read" v-html="project.acf.reading_time" />
+
+            <div
+              v-if="project.acf.reading_time"
+              v-html="project.acf.reading_time"
+              class="time_to_read"
+            />
           </footer>
         </nuxt-link>
       </section>
@@ -44,13 +57,13 @@ export default {
 </script>
 
 <style lang="scss">
-.portfolio {
-  display: none;
+// .portfolio {
+//   display: none;
 
-  &.open {
-    display: block;
-  }
-}
+//   &.open {
+//     display: block;
+//   }
+// }
 
 .button--showPortfolio {
   max-width: none;
@@ -64,6 +77,7 @@ export default {
   position: relative;
   margin-bottom: 80px;
   background-color: $gray7;
+
   @include media_600 {
     padding: 12px;
     margin-bottom: 80px;
@@ -82,12 +96,14 @@ export default {
 
 .portfolio_entry__maincontent {
   margin: 1em 0 1.5em;
-  max-width: 900px;
+  // max-width: 1100px;
+  max-width: calc(100% - 100px);
 }
 
 .portfolio_entry__footer {
   display: flex;
   justify-content: space-between;
+
   @include media_768 {
     display: block;
   }
@@ -95,6 +111,7 @@ export default {
 
 .portfolio_entry_title {
   margin: 0;
+
   @include media_768 {
     color: $red;
   }
@@ -102,6 +119,7 @@ export default {
 
 .portfolio_entry_link {
   @include big_link;
+
   @include media_768 {
     display: none;
   }
@@ -109,6 +127,7 @@ export default {
 
 .skills {
   color: $red;
+
   @include media_600 {
     color: $gray9;
   }
@@ -116,6 +135,7 @@ export default {
 
 .time_to_read {
   font-weight: bold;
+
   @include media_768 {
     display: none;
   }

@@ -9,27 +9,34 @@
         <span>
           Experienced in <strong>Vue.js</strong>
         </span>
+
         <span>
-          <b>•</b> <strong>JavaScript/ES6</strong>
+          <!-- <b>•</b> <strong>JavaScript/ES6</strong> -->
+          <b>•</b> <strong>JavaScript</strong>
         </span>
+
         <span>
-          <b>•</b> <strong>PHP</strong>, <strong>WordPress</strong>
+          <b>•</b> <strong>PHP</strong>
+        </span>
+
+        <span>
+          <b>•</b> <strong>WordPress</strong>
         </span>
       </p>
 
       <div class="home_intro__cta">
         <a
+          @click="handleClick"
           v-ripple
           class="button button--showPortfolio"
-          @click="handleClick"
         >
           {{ ctaCaption }}
         </a>
       </div>
 
       <portfolio
+        v-show="isOpen"
         :projects="projects"
-        :class="{ open : isOpen }"
       />
     </div>
   </div>
@@ -47,7 +54,7 @@ export default {
     return {
       projects: [],
       portfolioLocation: 0,
-      isOpen: true,
+      isOpen: false,
       ctaCaptions: [
         'see case studies',
         'hide case studies'
@@ -61,8 +68,9 @@ export default {
     })
   },
   mounted () {
-    this.portfolioLocation = window.scrollY + document.querySelector('.portfolio').getBoundingClientRect().top - 30
-    this.isOpen = false
+    // this.portfolioLocation = window.scrollY + document.querySelector('.portfolio').getBoundingClientRect().top - 30
+    // console.log(this.portfolioLocation)
+    // this.isOpen = false
     this.ctaCaption = this.ctaCaptions[0]
 
     this.$axios.$get(`${this.baseUrl}/wp-json/last_projects/v1/posts`)
@@ -75,6 +83,12 @@ export default {
   },
   methods: {
     handleClick () {
+      this.portfolioLocation = window.scrollY + document.querySelector('.portfolio').getBoundingClientRect().top - 30
+      // console.log(this.portfolioLocation)
+      setTimeout(() => {
+        this.portfolioLocation = window.scrollY + document.querySelector('.portfolio').getBoundingClientRect().top - 30
+        // console.log(this.portfolioLocation)
+      }, 2000)
       const portfolioElement = document.querySelector('.portfolio')
       if (!this.isOpen) {
         portfolioElement.style.display = 'block'
@@ -172,8 +186,13 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 60px 0 75px;
-  h2 {
-    margin: 0 15px 0 0;
+
+  .button {
+    width: 210px;
   }
+
+  // h2 {
+  //   margin: 0 15px 0 0;
+  // }
 }
 </style>
