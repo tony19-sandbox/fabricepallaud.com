@@ -2,8 +2,15 @@
   <div class="wrap wrap--single">
     <div class="content container">
       <header class="header_with_subtitle">
+        <a
+          @click="goToPreviousView"
+          class="back"
+          href="#"
+        >
+          Go back
+        </a>
+
         <h1 v-html="title" />
-        <!-- <div class="skills skills--single" v-html="skills" /> -->
       </header>
 
       <div v-html="content" />
@@ -32,11 +39,15 @@ export default {
       .then((res) => {
         this.title = res.post_title
         this.content = res.post_content
-        // this.skills = res.acf.skills
       })
       .catch((err) => {
         this.$toast.error(err)
       })
+  },
+  methods: {
+    goToPreviousView () {
+      this.$router.go(-1)
+    }
   }
 }
 </script>
@@ -65,19 +76,6 @@ export default {
     }
   }
 }
-
-// .skills--single {
-//   @include small_text;
-// }
-
-// .wrap--single li img {
-//   margin-bottom: 1em;
-// }
-
-// .wrap--single p img {
-//   max-width: 100%;
-//   height: auto;
-// }
 
 .wrap--single .container {
   max-width: $content_width_small;

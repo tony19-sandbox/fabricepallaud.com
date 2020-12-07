@@ -16,8 +16,9 @@
     "@nuxtjs/google-analytics": "^2.4.0",
     "js-cookie": "^2.2.1",
     "lodash.debounce": "^4.0.8",
-    "nuxt": "2.10.2",
+    "nuxt": "2.14.7",
     "scroll-ease-efficient": "^1.0.5",
+    "vue": "^2.6.12",
     "vue-ripple-directive": "^2.0.1",
     "vue-scrollto": "^2.20.0"
   },

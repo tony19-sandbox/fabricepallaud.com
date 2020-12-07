@@ -18,7 +18,7 @@ div {
   background-color: $white;
   position: relative;
   overflow: hidden;
-  padding: 70px 0 100px;
+  padding: 70px 0 160px;
   @include media_600 {
     padding: 40px 0 50px;
   }
@@ -133,7 +133,7 @@ h3.container {
 }
 
 .content a {
-  border-bottom: 1px solid $black1;
+  border-bottom: 1px solid $red;
 }
 
 .content_ul li,

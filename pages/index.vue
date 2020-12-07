@@ -11,7 +11,6 @@
         </span>
 
         <span>
-          <!-- <b>•</b> <strong>JavaScript/ES6</strong> -->
           <b>•</b> <strong>JavaScript</strong>
         </span>
 
@@ -44,6 +43,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import Cookies from 'js-cookie'
 import Portfolio from '@/components/Portfolio'
 
 export default {
@@ -64,15 +64,11 @@ export default {
   },
   computed: {
     ...mapState({
-      baseUrl: state => state.baseUrl
+      baseUrl: state => state.baseUrl,
+      showCaseStudies: state => state.showCaseStudies
     })
   },
   mounted () {
-    // this.portfolioLocation = window.scrollY + document.querySelector('.portfolio').getBoundingClientRect().top - 30
-    // console.log(this.portfolioLocation)
-    // this.isOpen = false
-    this.ctaCaption = this.ctaCaptions[0]
-
     this.$axios.$get(`${this.baseUrl}/wp-json/last_projects/v1/posts`)
       .then((res) => {
         this.projects = res
@@ -80,26 +76,26 @@ export default {
       .catch((err) => {
         this.$toast.error(err.response)
       })
+
+    if (this.showCaseStudies) {
+      this.isOpen = true
+      this.ctaCaption = this.ctaCaptions[1]
+    } else {
+      this.ctaCaption = this.ctaCaptions[0]
+    }
   },
   methods: {
     handleClick () {
-      this.portfolioLocation = window.scrollY + document.querySelector('.portfolio').getBoundingClientRect().top - 30
-      // console.log(this.portfolioLocation)
-      setTimeout(() => {
-        this.portfolioLocation = window.scrollY + document.querySelector('.portfolio').getBoundingClientRect().top - 30
-        // console.log(this.portfolioLocation)
-      }, 2000)
       const portfolioElement = document.querySelector('.portfolio')
       if (!this.isOpen) {
+        Cookies.set('cookie_case_studies_visible', true, { expires: 365 })
+        this.$store.commit('SET_CASE_STUDIES_STATUS', true)
         portfolioElement.style.display = 'block'
         this.isOpen = true
         this.ctaCaption = this.ctaCaptions[1]
-        window.scrollTo({
-          top: this.portfolioLocation,
-          left: 0,
-          behavior: 'smooth'
-        })
       } else {
+        Cookies.set('cookie_case_studies_visible', false, { expires: 365 })
+        this.$store.commit('SET_CASE_STUDIES_STATUS', false)
         this.isOpen = false
         this.ctaCaption = this.ctaCaptions[0]
         portfolioElement.style.display = 'none'
@@ -190,9 +186,5 @@ export default {
   .button {
     width: 210px;
   }
-
-  // h2 {
-  //   margin: 0 15px 0 0;
-  // }
 }
 </style>

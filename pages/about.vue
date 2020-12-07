@@ -70,6 +70,11 @@ export default {
   }
 }
 
+.back {
+  display: inline-block;
+  margin-bottom: 2em;
+}
+
 .page_summary--about {
   width: 50%;
 }

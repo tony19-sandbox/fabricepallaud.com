@@ -15,7 +15,6 @@
           </nuxt-link>
 
           <nuxt-link :to="`/project/${project.ID}/${project.post_name}`" class="portfolio_entry_link">
-            <!-- see case study -->
             see
           </nuxt-link>
         </header>
@@ -57,14 +56,6 @@ export default {
 </script>
 
 <style lang="scss">
-// .portfolio {
-//   display: none;
-
-//   &.open {
-//     display: block;
-//   }
-// }
-
 .button--showPortfolio {
   max-width: none;
   padding-left: 25px;
@@ -96,7 +87,6 @@ export default {
 
 .portfolio_entry__maincontent {
   margin: 1em 0 1.5em;
-  // max-width: 1100px;
   max-width: calc(100% - 100px);
 }
 

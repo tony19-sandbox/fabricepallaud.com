@@ -119,11 +119,7 @@ export default {
       formData.append('contact_name', this.contactName)
       formData.append('contact_email', this.contactEmail)
       formData.append('contact_message', this.contactMessage)
-      // this.$axios.$put(`${this.baseUrl}/wp-json/contact/v1/send`, {
-      //   contact_name: this.contactName,
-      //   contact_email: this.contactEmail,
-      //   contact_message: this.contactMessage
-      // })
+
       this.$axios.$put(`${this.baseUrl}/wp-json/contact/v1/send`, formData)
         .then((res) => {
           this.success = true
