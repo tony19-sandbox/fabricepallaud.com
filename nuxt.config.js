@@ -83,9 +83,8 @@ export default {
   },
   router: {
     // middleware: ['mobile-menu']
-    mode: 'hash',
     // base: '/nuxt/'
-  },  
+  },
   /*
   ** Build configuration
   */
